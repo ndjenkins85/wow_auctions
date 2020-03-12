@@ -1,0 +1,450 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"date",
+				"date"
+			],
+			[
+				"exc",
+				"exclude_list"
+			],
+			[
+				"json",
+				"json_text"
+			],
+			[
+				"proce",
+				"for_processing"
+			],
+			[
+				"for",
+				"for_processing"
+			],
+			[
+				"zip",
+				"zip_files_processed"
+			],
+			[
+				"see",
+				"seen_show"
+			],
+			[
+				"mast",
+				"master_keys"
+			],
+			[
+				"base",
+				"base_path"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "inventory.yaml",
+			"settings":
+			{
+				"buffer_size": 3675,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/Auc-Advanced.lua",
+			"settings":
+			{
+				"buffer_size": 48043,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "recipes.yaml",
+			"settings":
+			{
+				"buffer_size": 1583,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 3887,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "README.md"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"pretty json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"jsonTree",
+				"JsonTree: Show Tree"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/nicholasjenkins/Documents/wow_auctions"
+	],
+	"file_history":
+	[
+		"/Users/nicholasjenkins/Documents/wow_auctions/copy_data.sh",
+		"/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/ArkInventory.lua",
+		"/Users/nicholasjenkins/Documents/soccer_betting_sim/scrape/year_-2006-2007_page_1.txt",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-1124-open.html",
+		"/Users/nicholasjenkins/Documents/wow_auctions/recipes.yaml",
+		"/Users/nicholasjenkins/Documents/personalmonies/snapshots/2020-03-01.yaml",
+		"/Users/nicholasjenkins/Documents/personalmonies/statement_parsing.yaml",
+		"/Users/nicholasjenkins/Documents/personalmonies/statements/2020-03-01/activity.csv",
+		"/Users/nicholasjenkins/Documents/personalmonies/README.md",
+		"/Users/nicholasjenkins/Documents/personalmonies/template.yaml",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-22700-open.html",
+		"/Users/nicholasjenkins/Downloads/WhatsApp Chat with TThomas.txt",
+		"/Users/nicholasjenkins/Google Drive/Documents/07_Tax/US Tax 2019/Foreign_tax.txt",
+		"/Users/nicholasjenkins/Documents/wow_auctions/self_demand.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/sales_approach.txt",
+		"/Users/nicholasjenkins/Documents/wow_auctions/inventory.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/gold.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/slots.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/BeanCounter.lua",
+		"/Users/nicholasjenkins/Documents/wow_auctions/Elixir of Defense.yaml",
+		"/Applications/World of Warcraft/_classic_/Interface/AddOns/BeanCounter/BeanCounter.lua",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-5521-open.html",
+		"/Users/nicholasjenkins/Documents/personalmonies/snapshots/2020-01-10.yaml",
+		"/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/Auc-ScanData.lua",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2019-07-06_personal_guide-to-a-great-time-in-porto_travel-portugal.md",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2020-01-12_personal_big-list-of-things-to-do-nyc_travel-usa-organising.md",
+		"/Users/nicholasjenkins/Documents/personalsite/docker-compose.yml",
+		"/Users/nicholasjenkins/Documents/personalsite/personalsite/views.py",
+		"/Users/nicholasjenkins/Documents/personalsite/dockerfile",
+		"/Users/nicholasjenkins/Documents/personalsite/README.md",
+		"/Users/nicholasjenkins/Documents/personalsite/personalsite/config/config.py",
+		"/Users/nicholasjenkins/Documents/personalsite/personalsite/__init__.py",
+		"/Users/nicholasjenkins/Documents/personalsite/env/requirements_conda.txt",
+		"/Users/nicholasjenkins/Documents/personalsite/personalsite/config/config.yaml",
+		"/Users/nicholasjenkins/Documents/personalsite/.gitignore",
+		"/Users/nicholasjenkins/Documents/personalsite/personalsite/config/base_config.py",
+		"/Users/nicholasjenkins/Documents/personalsite/run.py",
+		"/Users/nicholasjenkins/Documents/personalsite/personalsite/file_parsing.py",
+		"/Users/nicholasjenkins/Documents/personalsite/environment/requirements_noconda.txt",
+		"/Users/nicholasjenkins/Documents/personalsite/environment/requirements_conda.txt",
+		"/Users/nicholasjenkins/Documents/personalsite/env/requirements_noconda.txt",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-12532-open.html",
+		"/Users/nicholasjenkins/Documents/personalsite/personalsite/templates/index.html",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2019-12-22_professional_getting-started-with-new-work-environments_consulting-career-travel.md",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2019-12-22_personal_a-short-weight-loss-journey_lifestyle-personalprojects.md",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-2545-open.html",
+		"/Users/nicholasjenkins/Downloads/clubdata.sql",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-1525-open.html",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-4959-open.html",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-1136-open.html",
+		"/Users/nicholasjenkins/Google Drive/Documents/07_Tax/Tax 2018-19/My Tax Notes.txt",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-11529-open.html",
+		"/Users/nicholasjenkins/Documents/apartment_choice_simulator/examples.txt",
+		"/Users/nicholasjenkins/Google Drive/Documents/04_ID information/849-90-2226 SSN Add pin.txt",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2019-07-17_personal_australian-wedding-on-a-budget_lifestyle-australia-organising.md ",
+		"/Users/nicholasjenkins/Google Drive/Documents/09_Legal/login gov us backup codes.txt",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2018-11-08_personal_my-digital-nomad-packing_list_travel-gear-lifestyle-digitalnomad-packing.md",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2019-07-10_personal_guide-to-a-weeks-holiday-in-australia_travel-australia.md ",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2019-07-04_personal_guide-to-a-long-weekend-in-hobart_travel-australia.md",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-592-open.html",
+		"/Users/nicholasjenkins/Documents/nsw_edu/data/facebook-ardlethncs.json",
+		"/Users/nicholasjenkins/Documents/nsw_edu/zips_to_json.py",
+		"/Users/nicholasjenkins/Downloads/downloaded_schools/facebook-ardlethncs/posts/posts_1.json",
+		"/Users/nicholasjenkins/Documents/nsw_edu/README.md",
+		"/Users/nicholasjenkins/Google Drive/Icon\r",
+		"/Users/nicholasjenkins/Documents/nsw_edu/data/facebook-armidalecitypublicschool.json",
+		"/Users/nicholasjenkins/Documents/nsw_edu/data/facebook-anzacparkpublicschool.json",
+		"/Users/nicholasjenkins/Documents/nsw_edu/data/facebook-annangrovepublicschool.json",
+		"/Users/nicholasjenkins/Documents/nsw_edu/data/facebook-261186860575991.json",
+		"/Users/nicholasjenkins/Downloads/facebook-armidalecitypublicschool/posts/posts_1.json",
+		"/Users/nicholasjenkins/Google Drive/Documents/ID information/_manifest_and_numbers.txt",
+		"/Users/nicholasjenkins/Desktop/Re_ Sublet inquiry.eml",
+		"/Users/nicholasjenkins/Downloads/Access Key ID",
+		"/Users/nicholasjenkins/Google Drive/_NOTES/190224.txt",
+		"/Users/nicholasjenkins/Google Drive/_NOTES/wedding purchase and hire.txt",
+		"/Users/nicholasjenkins/Desktop/Large confetti"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 175.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"arcane"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "inventory.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3675,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								122,
+								122
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/Auc-Advanced.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 48043,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 28921.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "recipes.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1583,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								592,
+								592
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3886,
+								3886
+							]
+						],
+						"settings":
+						{
+							"auto_name": "README.md",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1028.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "wow_auctions.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 343.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

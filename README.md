@@ -50,9 +50,18 @@ Simple approach;
 * Each item has an inventory cap, related to demand
 * As inventory fills, so too should the price threshold, so only bargins get in
 
-Programming TODO
+## Primary TODO
 - [X] Create lists of items of interest
 - [X] Find the total inventory of each item
-- [] Remove inventory reserved for character use
-	- [] Aside, given some rough prices provide stocktake total
-	- [] Given dynamic market prices provide stocktake total
+- [X] Remove inventory reserved for character use
+- [X] Define stack sizes for items of interest
+- [X] Inventory needs to be split by location (auction, mailbox infinite), to give proper inventory constraint
+- [] Define constraints for max inventory size for stock
+
+## Extra TODO
+- [] Aside, given some rough prices provide stocktake total
+- [] Given dynamic market prices provide stocktake total
+- [] Given self-use list, create list of items to send to players
+
+
+

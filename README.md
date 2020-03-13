@@ -46,4 +46,13 @@ With this in mind we propose the following plan to iterate towards a good model.
 8) Use Auctioneer 'Snatch', purchase all
 9) Log out, repeat from 6 as required till price reset
 
+Simple approach;
+* Each item has an inventory cap, related to demand
+* As inventory fills, so too should the price threshold, so only bargins get in
 
+Programming TODO
+- [X] Create lists of items of interest
+- [X] Find the total inventory of each item
+- [] Remove inventory reserved for character use
+	- [] Aside, given some rough prices provide stocktake total
+	- [] Given dynamic market prices provide stocktake total

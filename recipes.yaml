@@ -13,9 +13,6 @@ Elixir of Greater Agility:
 Elixir of Greater Defense:
   Wild Steelbloom: 1
   Goldthorn: 1
-# Elixir of Greater Intellect:
-#   Blindweed: 1
-#   Khadgar's Whiskers: 1
 Limited Invulnerability Potion:
   Blindweed: 2
   Ghost Mushroom: 1
@@ -66,6 +63,9 @@ Grilled Squid:
   Winter Squid: 1
 Tender Wolf Steak:
   Tender Wolf Meat: 1
+# Elixir of Greater Intellect:
+#   Blindweed: 1
+#   Khadgar's Whiskers: 1  
 # Swiftness Potion:
 #   Swiftthistle: 1
 #   UNKNOWN: 1

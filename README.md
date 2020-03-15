@@ -56,17 +56,17 @@ Simple approach;
 - [X] Remove inventory reserved for character use
 - [X] Define stack sizes for items of interest
 - [X] Inventory needs to be split by location (auction, mailbox infinite), to give proper inventory constraint
-- [] Calculate % sales per item
-- [] Calculate mean sale price and standard deviation
-- [] Define constraints for max inventory size for stock
+- [ ] Calculate % sales per item
+- [ ] Calculate mean sale price and standard deviation
+- [ ] Define constraints for max inventory size for stock
 
 
 ## Extra TODO
 - [X] Create graph of potions
-- [] Aside, given some rough prices provide stocktake total
-- [] Given dynamic market prices provide stocktake total
-- [] Given self-use list, create list of items to send to players
+- [ ] Aside, given some rough prices provide stocktake total
+- [ ] Given dynamic market prices provide stocktake total
+- [ ] Given self-use list, create list of items to send to players
 
-![Potions]("potions.png")
+![Potions](potions.png)
 
 

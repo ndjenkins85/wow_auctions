@@ -10,3 +10,7 @@ location_info:
   2: Bank
   4: Mailbox
   10: Auctions
+auction_type_labels:
+  completedAuctions: "sold"
+  completedBidsBuyouts: "bought"
+  failedAuctions: "failed"

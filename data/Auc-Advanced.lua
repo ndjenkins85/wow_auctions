@@ -1298,7 +1298,7 @@ AucAdvancedData = {
 					["link"] = "|cffffffff|Hitem:8845::::::::5:::::::|h[Ghost Mushroom]|h|r",
 				},
 				["4402:0:0"] = {
-					["price"] = 12500,
+					["price"] = 12600,
 					["link"] = "|cffffffff|Hitem:4402::::::::5:::::::|h[Small Flame Sac]|h|r",
 				},
 				["6358:0:0"] = {
@@ -1364,7 +1364,7 @@ AucAdvancedData = {
 						["link"] = "|cffffffff|Hitem:13422::::::::5:::::::|h[Stonescale Eel]|h|r",
 					},
 					["4402:0:0"] = {
-						["price"] = 12500,
+						["price"] = 12600,
 						["link"] = "|cffffffff|Hitem:4402::::::::5:::::::|h[Small Flame Sac]|h|r",
 					},
 					["6358:0:0"] = {

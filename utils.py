@@ -1,16 +1,10 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
 import yaml
 from collections import defaultdict
 from slpp import slpp as lua #pip install git+https://github.com/SirAnthony/slpp
 import pandas as pd
 from math import ceil
 
-def get_inventory():
+def get_inventory(verbose=False):
     """ Reads and reformats the Arkinventory data file into a pandas dataframe
     Loads yaml files to specify item locations and specific items of interest
     Saves down parquet file ready to go
@@ -84,7 +78,8 @@ def get_inventory():
 
     # Save out the monies information
     total_monies = sum(list(monies.values()))/10000
-    print(f"Total Monies: {total_monies:.2f}")
+    if verbose:
+        print(f"Total Monies: {total_monies:.2f}")
     with open('intermediate/monies.txt', 'w') as f:
         f.write(str(total_monies))
 
@@ -105,16 +100,61 @@ def get_inventory():
     df = df.dropna()
     df['stack_size'] = df['stack_size'].astype(int)
     df.to_parquet('intermediate/inventory.parquet', compression='gzip')
+    if verbose:
+        print(f'Saving inventory data with {df.shape} shape')
 
 
-# In[25]:
+def get_character_needs(character: str):
+    """ Looks through a characters inventory and their wish list to determine if anything is missing    
+    """
+    # Loads inventory parquet
+    df = pd.read_parquet('intermediate/inventory.parquet')
+    
+    # Load the self-demand / wish list
+    path_self_demand = 'config/self_demand.yaml'
+    with open(path_self_demand, 'r') as f:
+        self_demand = yaml.load(f, Loader=yaml.FullLoader)    
+    
+    # Find the character of interest only
+    char_needs = {}
+    for item, chars in self_demand.items():
+        for char, count in chars.items():
+            if char == character:
+                char_needs[item] = count
+
+    # Group their locations
+    char_df = df[df['character']==character]
+    char_df = char_df.groupby('item').sum()[['count']]
+
+    char_df['item'] = char_df.index
+    char_df['count_needed'] = char_df['item'].apply(lambda x: char_needs.get(x, 0))
+
+    char_df['short'] = char_df['count'] - char_df['count_needed']
+    items_short = char_df[char_df['short']<0]['short'].to_dict()
+
+    return items_short    
 
 
+def get_mule_counts():
+    """ Gets the accessible item counts across the mule characters
+        Returns a dataframe with category and count fields
+    """
 
+    df = pd.read_parquet('intermediate/inventory.parquet')
 
+    path_settings = 'config/settings.yaml'
+    with open(path_settings, 'r') as f:
+        settings = yaml.load(f, Loader=yaml.FullLoader)
 
-# In[ ]:
+    mules = ['Amazoni', 'Ihodl']
+    locations = ['Inventory', 'Bank', 'Mailbox']
+        
+    ind = df[(df['character'].isin(mules))&(df['location'].isin(locations))].index
 
+    df_mules = df.loc[ind]
 
-
-
+    categories = df_mules[['item','category']].drop_duplicates().set_index('item')
+    item_count = df_mules.groupby('item').sum()[['count']].join(categories)
+    item_count = item_count.sort_values(['category','count'], ascending=[True, False])
+    item_count = item_count[['category','count']]
+    return item_count

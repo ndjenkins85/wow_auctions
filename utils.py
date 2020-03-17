@@ -20,13 +20,16 @@ def read_lua(datasource: str):
     return data
 
 
-def get_interesting_items_and_stacks():
+def get_interesting_items_and_stacks(raw=False):
     """ Loads and returns the user created YAML file of interesting items and their stack sizes
     """
     # Pulls our list of items of interest, and filters dataframe accordingly
     path_items_of_interest = 'config/items_of_interest.yaml'
     with open(path_items_of_interest, 'r') as f:
         items_of_interest = yaml.load(f, Loader=yaml.FullLoader)
+
+    if raw:
+        return items_of_interest
 
     # Reformat items of interest data to get stack size, and item categories
     stack_sizes = {}
@@ -117,6 +120,7 @@ def generate_inventory(verbose=False):
     # Create more focused version
     df = df.dropna()
     df['stack_size'] = df['stack_size'].astype(int)
+
     df.to_parquet('intermediate/inventory.parquet', compression='gzip')
     if verbose:
         print(f'Saving inventory data with {df.shape} shape')
@@ -232,7 +236,8 @@ def generate_auction_history(verbose=False):
     df.to_parquet('intermediate/auctions_full.parquet', compression='gzip')
 
     categories, _ = get_interesting_items_and_stacks()
-    df_interest = df[df['item'].isin(categories)]
+    df_interest = df.loc[df[df['item'].isin(categories)].index]
+    df_interest['categories'] = df_interest['item'].replace(categories)
 
     if verbose:
         print(f"{df_interest.shape[0]} auction events of interest")    
@@ -243,10 +248,11 @@ def analyse_price(df, min_count=10):
     """ Given an auctions dataframe, generate mean and std price dataframes
     """
     price_mean = df.groupby(['auction_type','item']).mean()['price_per'].unstack().T
-    price_count = df.groupby(['auction_type','item']).count()['price_per'].unstack().T.fillna(0).astype(int)
+    price_auctions = df.groupby(['auction_type','item']).count()['count'].unstack().T.fillna(0).astype(int)    
+    price_count = df.groupby(['auction_type','item']).sum()['count'].unstack().T.fillna(0).astype(int)
     price_std = df.groupby(['auction_type','item']).std()['price_per'].unstack().T
 
-    price_mean = price_mean[price_count>=min_count]
-    price_std = price_std[price_count>=min_count]
+    price_mean = price_mean[price_auctions>=min_count].round(2)
+    price_std = price_std[price_auctions>=min_count].round(2)
         
-    return price_mean, price_std
+    return price_mean, price_std, price_count

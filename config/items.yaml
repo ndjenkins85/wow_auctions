@@ -1,0 +1,457 @@
+Arcane Crystal:
+  backup_price: 600000
+  full_deposit: 1200
+  label: Commodities
+  max_stack: 10
+  self_demand:
+    Bluem: 1
+    Emiliø: 1
+    Melue: 1
+Arcane Elixir:
+  backup_price: 9000
+  full_deposit: 240
+  label: Sell
+  made_from:
+    Blindweed: 1
+    Crystal Vial: 1
+    Goldthorn: 1
+  max_stack: 5
+Arcanite Bar:
+  backup_price: 700000
+  full_deposit: null
+  label: Commodities
+  max_stack: 10
+Blackmouth Oil:
+  backup_price: 3600
+  full_deposit: 100
+  label: Intermediate
+  made_from:
+    Empty Vial: 1
+    Oily Blackmouth: 2
+  max_stack: 20
+Blinding Powder:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  max_stack: 20
+  self_demand:
+    Melue: 20
+Blindweed:
+  backup_price: null
+  full_deposit: null
+  label: Buy
+  max_stack: 20
+Crippling Poison II:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  max_stack: 20
+  self_demand:
+    Melue: 20
+Dense Sharpening Stones:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  max_stack: 20
+  self_demand:
+    Melue: 20
+    Zegna: 20
+Dream Dust:
+  backup_price: null
+  full_deposit: null
+  label: Buy
+  max_stack: 20
+Dreamfoil:
+  backup_price: null
+  full_deposit: null
+  label: Buy
+  max_stack: 20
+Elemental Sharpening Stone:
+  backup_price: null
+  full_deposit: null
+  label: Commodities
+  max_stack: 20
+  self_demand:
+    Melue: 3
+    Zegna: 3
+Elixir of Fortitude:
+  backup_price: null
+  full_deposit: 60
+  label: Sell
+  made_from:
+    Goldthorn: 1
+    Leaded Vial: 1
+    Wild Steelbloom: 1
+  max_stack: 5
+  self_demand:
+    Zegna: 5
+Elixir of Giants:
+  backup_price: null
+  full_deposit: 420
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Gromsblood: 1
+    Sungrass: 1
+  max_stack: 5
+  self_demand:
+    Melue: 5
+    Zegna: 5
+Elixir of Greater Agility:
+  backup_price: null
+  full_deposit: 360
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Goldthorn: 1
+    Sungrass: 1
+  max_stack: 5
+  self_demand:
+    Melue: 5
+    Zegna: 5
+Elixir of Greater Intellect:
+  backup_price: null
+  full_deposit: 600
+  label: Sell
+  made_from:
+    Leaded Vial: 1
+    Blindweed: 1
+    Khadgar's Whiskers: 1 
+  max_stack: 5
+  self_demand: {}
+Elixir of Shadow Power:
+  backup_price: null
+  full_deposit: null
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Ghost Mushroom: 3
+  max_stack: 5
+Elixir of Superior Defense:
+  backup_price: null
+  full_deposit: 300
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Leaded Vial: 2
+    Stonescale Eel: 2
+    Sungrass: 1
+  max_stack: 5
+  self_demand:
+    Zegna: 5
+Elixir of the Mongoose:
+  backup_price: null
+  full_deposit: 744
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Mountain Silversage: 2
+    Plaguebloom: 2
+  max_stack: 5
+  self_demand:
+    Melue: 5
+    Zegna: 5
+Essence of Undead:
+  backup_price: null
+  full_deposit: null
+  label: Commodities
+  max_stack: 10
+Essence of Water:
+  backup_price: null
+  full_deposit: null
+  label: Commodities
+  max_stack: 10
+Fadeleaf:
+  backup_price: null
+  full_deposit: null
+  label: Buy
+  max_stack: 20
+Fire Oil:
+  backup_price: null
+  full_deposit: null
+  label: Intermediate
+  made_from:
+    Empty Vial: 1
+    Firefin Snapper: 2
+  max_stack: 20
+Fire Protection Potion:
+  backup_price: null
+  full_deposit: 96
+  label: Sell
+  made_from:
+    Empty Vial: 1
+    Firefin Snapper: 2
+    Leaded Vial: 1
+    Small Flame Sac: 1
+  max_stack: 5
+  self_demand:
+    Melue: 5
+    Zegna: 5
+Firefin Snapper:
+  backup_price: null
+  full_deposit: null
+  label: Buy
+  max_stack: 20
+Flash Powder:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  max_stack: 20
+  self_demand:
+    Melue: 20
+Free Action Potion:
+  backup_price: null
+  full_deposit: null
+  label: Sell
+  made_from:
+    Empty Vial: 2
+    Leaded Vial: 1
+    Oily Blackmouth: 4
+    Stranglekelp: 1
+  max_stack: 5
+  self_demand:
+    Melue: 5
+    Zegna: 5
+Ghost Mushroom:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 20
+Goldthorn:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 20
+Grave Moss:
+  backup_price: null
+  full_deposit: null
+  label: Buy
+  max_stack: 20
+Greater Arcane Protection Potion:
+  backup_price: null
+  full_deposit: null
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Dream Dust: 1
+    Dreamfoil: 1
+  max_stack: 5
+  self_demand:
+    Melue: 5
+    Zegna: 5
+Greater Eternal Essence:
+  backup_price: null
+  full_deposit: null
+  label: Commodities
+  max_stack: 10
+Greater Shadow Protection Potion:
+  backup_price: null
+  full_deposit: null
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Dreamfoil: 1
+    Fadeleaf: 4
+    Grave Moss: 4
+    Leaded Vial: 1
+  max_stack: 5
+  self_demand:
+    Melue: 2
+    Zegna: 2
+Greater Stoneshield Potion:
+  backup_price: null
+  full_deposit: 444
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Leaded Vial: 3
+    Stonescale Eel: 3
+    Thorium Ore: 1
+  max_stack: 5
+Grilled Squid:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  made_from:
+    Winter Squid: 1
+  max_stack: 20
+  self_demand:
+    Melue: 20
+Gromsblood:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 20
+Heavy Runecloth Bandage:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  max_stack: 20
+  self_demand:
+    Melue: 40
+    Zegna: 40
+Instant Poison V:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  max_stack: 20
+  self_demand:
+    Melue: 20
+Invisibility Potion:
+  backup_price: null
+  full_deposit: 300
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Ghost Mushroom: 1
+    Sungrass: 1
+  max_stack: 5
+Lesser Eternal Essence:
+  backup_price: null
+  full_deposit: null
+  label: Commodities
+  max_stack: 10
+Limited Invulnerability Potion:
+  backup_price: null
+  full_deposit: 12
+  label: Sell
+  made_from:
+    Blindweed: 2
+    Crystal Vial: 1
+    Ghost Mushroom: 1
+  max_stack: 5
+  self_demand:
+    Zegna: 5
+Major Health Potion:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  max_stack: 5
+  self_demand:
+    Melue: 5
+    Zegna: 5
+Mighty Rage Potion:
+  backup_price: null
+  full_deposit: 300
+  label: Sell
+  made_from:
+    Crystal Vial: 1
+    Gromsblood: 3
+  max_stack: 5
+  self_demand:
+    Zegna: 15
+Mountain Silversage:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 20
+Oily Blackmouth:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 20
+Plaguebloom:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 20
+Small Flame Sac:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 5
+Stonescale Eel:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 20
+Stonescale Oil:
+  backup_price: null
+  full_deposit: null
+  label: Intermediate
+  made_from:
+    Leaded Vial: 1
+    Stonescale Eel: 1
+  max_stack: 20
+Stranglekelp:
+  backup_price: null
+  full_deposit: null
+  label: Buy
+  max_stack: 20
+Sungrass:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 20
+Superior Health Potion:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  max_stack: 5
+  self_demand:
+    Melue: 5
+    Zegna: 5
+Superior Mana Potion:
+  backup_price: null
+  full_deposit: null
+  label: Sell
+  made_from:
+    Blindweed: 2
+    Crystal Vial: 1
+    Sungrass: 2
+  max_stack: 5
+Swiftness Potion:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  made_from:
+    Briarthorn: 1
+    Empty Vial: 1
+    Swiftthistle: 1
+  max_stack: 5
+  self_demand:
+    Zegna: 5
+Tender Wolf Steak:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  made_from:
+    Tender Wolf Meat: 1
+  max_stack: 20
+  self_demand:
+    Melue: 20
+    Zegna: 20
+Thistle Tea:
+  backup_price: null
+  full_deposit: null
+  label: Standards
+  max_stack: 10
+  self_demand:
+    Melue: 15
+Thorium Bar:
+  backup_price: null
+  full_deposit: null
+  label: Commodities
+  max_stack: 20
+Thorium Ore:
+  backup_price: null
+  full_deposit: null
+  label: Buy
+  max_stack: 10
+Wild Steelbloom:
+  backup_price: null
+  full_deposit: null
+  label: Snatch
+  max_stack: 20
+Crystal Vial:
+  backup_price: 400
+  label: Other
+  max_stack: 20
+Leaded Vial:
+  backup_price: 32
+  label: Other
+  max_stack: 20
+Empty Vial:
+  backup_price: 3
+  label: Other
+  max_stack: 20

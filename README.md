@@ -56,17 +56,21 @@ Simple approach;
 - [X] Remove inventory reserved for character use
 - [X] Define stack sizes for items of interest
 - [X] Inventory needs to be split by location (auction, mailbox infinite), to give proper inventory constraint
-- [ ] Calculate % sales per item
-- [ ] Calculate mean sale price and standard deviation
+- [ ] Reformat items of interest yaml to include recipes, self_demand
+- [ ] Calculate sale price and standard deviation per item, with minimum sample, and preferring more recent data
+- [ ] Calculate fail % per item, auction prices, auction cut
 - [ ] Define constraints for max inventory size for stock
-
 
 ## Extra TODO
 - [X] Create graph of potions
-- [ ] Aside, given some rough prices provide stocktake total
-- [ ] Given dynamic market prices provide stocktake total
-- [ ] Given self-use list, create list of items to send to players
+- [X] Given self-use list, create list of items to send to players
+- [ ] Given buy and sell prices provide stocktake total (as range)
 
 ![Potions](potions.png)
+
+
+### Thoughts
+6 slots per potion; (2x5, 4x1) x2
+
 
 

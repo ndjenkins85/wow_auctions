@@ -11,6 +11,6 @@ location_info:
   4: Mailbox
   10: Auctions
 auction_type_labels:
-  completedAuctions: "sold"
-  completedBidsBuyouts: "bought"
+  completedAuctions: "sell_price"
+  completedBidsBuyouts: "buy_price"
   failedAuctions: "failed"

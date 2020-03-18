@@ -20,26 +20,11 @@ def read_lua(datasource: str):
     return data
 
 
-def get_interesting_items_and_stacks(raw=False):
+def load_items():
     """ Loads and returns the user created YAML file of interesting items and their stack sizes
     """
-    # Pulls our list of items of interest, and filters dataframe accordingly
-    path_items_of_interest = 'config/items_of_interest.yaml'
-    with open(path_items_of_interest, 'r') as f:
-        items_of_interest = yaml.load(f, Loader=yaml.FullLoader)
-
-    if raw:
-        return items_of_interest
-
-    # Reformat items of interest data to get stack size, and item categories
-    stack_sizes = {}
-    categories = {}
-    for cat, dic in items_of_interest.items():
-        stack_sizes.update(dic)
-        for item in dic:
-            categories[item] = cat
-
-    return categories, stack_sizes
+    with open('config/items.yaml', 'r') as f:
+        return yaml.load(f, Loader=yaml.FullLoader)
 
 
 def get_general_settings():
@@ -54,9 +39,9 @@ def generate_inventory(verbose=False):
     Loads yaml files to specify item locations and specific items of interest
     Saves down parquet file ready to go
     """
-    settings = get_general_settings() 
 
-    categories, stack_sizes = get_interesting_items_and_stacks()
+    settings = get_general_settings() 
+    user_items = load_items()
     data = read_lua('ArkInventory')
 
     characters = data['ARKINVDB']['global']['player']['data'] 
@@ -112,36 +97,36 @@ def generate_inventory(verbose=False):
     with open('intermediate/monies.txt', 'w') as f:
         f.write(str(total_monies))  
 
-    # Add category and stack size info and save
-    df['category'] = df['item'].apply(lambda x: categories.get(x))
+    # Add label and stack size info and save
+    item_labels = {item: details['label'] for item, details in user_items.items()}
+    stack_sizes = {item: details.get('max_stack') for item, details in user_items.items()}
+
+    df['label'] = df['item'].apply(lambda x: item_labels.get(x))
     df['stack_size'] = df['item'].apply(lambda x: stack_sizes.get(x))
     df.to_parquet('intermediate/inventory_full.parquet', compression='gzip')    
 
     # Create more focused version
-    df = df.dropna()
-    df['stack_size'] = df['stack_size'].astype(int)
+    df_subset = df.dropna().copy()
+    df_subset['stack_size'] = df_subset['stack_size'].astype(int)
 
-    df.to_parquet('intermediate/inventory.parquet', compression='gzip')
+    df_subset.to_parquet('intermediate/inventory.parquet', compression='gzip')
     if verbose:
-        print(f'Saving inventory data with {df.shape} shape')
+        print(f'Saving inventory data with {df_subset.shape} shape')
 
 
-def get_character_needs(character):
+def get_character_needs(character=[]):
     """ Looks through character inventory and their wish list to determine if anything is missing 
         Can take single character as string or list of characters   
     """
-    # Loads inventory parquet
-    df = pd.read_parquet('intermediate/inventory.parquet')
-    
-    # Load the self-demand / wish list
-    path_self_demand = 'config/self_demand.yaml'
-    with open(path_self_demand, 'r') as f:
-        self_demand = yaml.load(f, Loader=yaml.FullLoader)    
-    
     if type(character) is str:
         character = [character]
     elif type(character) is not list:
         raise Exception('Expected character input as string or list')
+
+    df = pd.read_parquet('intermediate/inventory.parquet')
+
+    user_items = load_items()
+    self_demand = {item: details.get('self_demand', {}) for item, details in user_items.items()}
 
     character_needs = {}
     for c in character:
@@ -164,7 +149,7 @@ def get_character_needs(character):
 
         character_needs[c] = items_short
 
-    return character_needs    
+    return character_needs     
 
 
 def get_mule_counts():
@@ -235,24 +220,117 @@ def generate_auction_history(verbose=False):
         print(f"{df.shape[0]} auction events")
     df.to_parquet('intermediate/auctions_full.parquet', compression='gzip')
 
-    categories, _ = get_interesting_items_and_stacks()
-    df_interest = df.loc[df[df['item'].isin(categories)].index]
-    df_interest['categories'] = df_interest['item'].replace(categories)
+    user_items = load_items()
+    item_labels = {item: details['label'] for item, details in user_items.items()}
+
+    df_interest = df.loc[df[df['item'].isin(user_items)].index]
+    df_interest['labels'] = df_interest['item'].replace(item_labels)
 
     if verbose:
-        print(f"{df_interest.shape[0]} auction events of interest")    
-    df_interest.to_parquet('intermediate/auctions.parquet', compression='gzip')
+        print(f"{df_interest.shape[0]} auction events of interest")
+
+    df_interest.sort_values('timestamp').to_parquet('intermediate/auctions.parquet', compression='gzip')
 
 
-def analyse_price(df, min_count=10):
-    """ Given an auctions dataframe, generate mean and std price dataframes
+def add_item_prices(MAX_RECENT=25, MIN_RECENT=5, MAX_SUCCESS=250, MIN_SUCCESS=10, MIN_PROFIT_MARGIN=1000):
+    """ Enriches the user items listing with pricing data from analysis
+        Analysed within recent X transactions; yields average buy_price, sell_price
+        Calculates material costs for any crafted item, and other costs
+        Calculates profit per item and minimum item price
     """
-    price_mean = df.groupby(['auction_type','item']).mean()['price_per'].unstack().T
-    price_auctions = df.groupby(['auction_type','item']).count()['count'].unstack().T.fillna(0).astype(int)    
-    price_count = df.groupby(['auction_type','item']).sum()['count'].unstack().T.fillna(0).astype(int)
-    price_std = df.groupby(['auction_type','item']).std()['price_per'].unstack().T
 
-    price_mean = price_mean[price_auctions>=min_count].round(2)
-    price_std = price_std[price_auctions>=min_count].round(2)
+    user_items = load_items()
+    df_raw = pd.read_parquet('intermediate/auctions.parquet')
+    df = df_raw.copy()
+
+    df['rank'] = df.groupby(['auction_type', 'item'])['timestamp'].rank(ascending=False)
+    recent_df = df[df['rank']<=MAX_RECENT]
+
+    item_prices = recent_df.groupby(['auction_type', 'item'])['price_per'].mean().unstack().T
+    item_counts = recent_df.groupby(['auction_type', 'item'])['price_per'].count().unstack().T.fillna(0)
+    item_prices = item_prices[item_counts>=MIN_RECENT]
+    item_std = df.groupby(['item'])['price_per'].std().to_dict()
+
+    # Ensures the user_items data is populated if not present in auction history, with dummy backup data
+    for item in user_items:
+        if item not in item_prices.index:
+            item_prices.loc[item] = user_items[item]['backup_price']
+
+    # Given the average recent buy price, calculate material costs per item
+    item_costs = {}
+    for item, details in user_items.items():
+        material_cost = 0
+        for ingredient, count in details.get('made_from', {}).items():
+            material_cost += item_prices.loc[ingredient, 'buy_price'] * count
+        if material_cost is not 0:
+            item_costs[item] = int(material_cost)
+
+    # Create auction success metrics
+    df_success = df_raw.copy()
+
+    # Look at the most recent X sold or failed auctions
+    df_success = df_success[df_success['auction_type'].isin(['sell_price', 'failed'])]
+    df_success['rank'] = df_success.groupby(['item'])['timestamp'].rank(ascending=False)
+
+    # Limit to recent successful auctions
+    df_success = df_success[df_success['rank']<=MAX_SUCCESS]
+    df_success['auction_success'] = df_success['auction_type'].replace({'sell_price': 1, 'failed': 0})
+    # Ensure theres at least some auctions for a resonable ratio
+    df_success = df_success[df_success['rank']>=MIN_SUCCESS]
+
+    # Calcualte success%
+    df_success = df_success.groupby('item')['auction_success'].mean()
+    item_success = df_success.to_dict()            
         
-    return price_mean, price_std, price_count
+    # Save enrichments to user_items dict
+    for item, details in user_items.items():
+        if item in item_costs:
+            user_items[item]['material_cost'] = int(item_costs[item])
+        else:
+            user_items[item]['material_cost'] = None
+            
+        # TODO: May need to fix the formatting of outputs of .nan if its a problem downstream
+        if item in item_prices.index:
+            user_items[item]['buy_price'] = float(item_prices.loc[item, 'buy_price'])
+        else:
+            user_items[item]['buy_price'] = None
+
+        if item in item_prices.index:            
+            user_items[item]['sell_price'] = float(item_prices.loc[item, 'sell_price'])            
+        else:
+            user_items[item]['sell_price'] = None
+            
+        if item in item_std:
+            user_items[item]['std_price'] = item_std[item]
+        else:
+            user_items[item]['std_price'] = None
+            
+        if item in item_success:
+            user_items[item]['auction_success'] = item_success[item]
+        else:
+            user_items[item]['auction_success'] = None            
+            
+            
+            
+    profit = pd.DataFrame.from_dict(user_items).T
+    profit = profit[['sell_price', 'material_cost', 'full_deposit', 'std_price', 'auction_success']].dropna()
+
+    profit['gross_profit'] = (profit['sell_price'] - 
+                        profit['material_cost'] - 
+                        (profit['sell_price'] * 0.05) - 
+                        (profit['full_deposit'] * (1 - profit['auction_success'])))
+
+    profit['min_list_price'] = ((profit['material_cost'] + 
+                                 (profit['full_deposit'] * (1 - profit['auction_success']))) + 
+                                MIN_PROFIT_MARGIN) * 1.05
+
+    # Round to nearest silver, bit more readable
+    profit['min_list_price'] = (profit['min_list_price'].astype(float) / 100).astype(int)*100
+
+    for item, details in user_items.items():
+        if item in profit.index:
+            user_items[item]['gross_profit'] = int(profit.loc[item, 'gross_profit'])
+            user_items[item]['min_list_price'] = int(profit.loc[item, 'min_list_price'])
+            
+    with open('intermediate/items_enriched.yaml', 'w') as f:
+        yaml.dump(user_items, f)    

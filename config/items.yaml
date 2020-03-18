@@ -119,6 +119,31 @@ Elixir of Greater Intellect:
     Khadgar's Whiskers: 1 
   max_stack: 5
   self_demand: {}
+Tender Wolf Meat:
+  backup_price: 700
+  full_deposit: null
+  label: Other
+  max_stack: 20
+Khadgar's Whiskers:
+  backup_price: 300
+  full_deposit: null
+  label: Other
+  max_stack: 20
+Swiftthistle:
+  backup_price: 5000
+  full_deposit: null
+  label: Other
+  max_stack: 20  
+Briarthorn:
+  backup_price: 300
+  full_deposit: null
+  label: Other
+  max_stack: 20  
+Winter Squid:
+  backup_price: 700000
+  full_deposit: null
+  label: Other
+  max_stack: 20  
 Elixir of Shadow Power:
   backup_price: null
   full_deposit: null
@@ -274,6 +299,7 @@ Grilled Squid:
   label: Standards
   made_from:
     Winter Squid: 1
+    Soothing Spices: 1
   max_stack: 20
   self_demand:
     Melue: 20
@@ -417,6 +443,7 @@ Tender Wolf Steak:
   label: Standards
   made_from:
     Tender Wolf Meat: 1
+    Soothing Spices: 1
   max_stack: 20
   self_demand:
     Melue: 20
@@ -455,3 +482,7 @@ Empty Vial:
   backup_price: 3
   label: Other
   max_stack: 20
+Soothing Spices:
+  backup_price: 128
+  label: Other
+  max_stack: 20  

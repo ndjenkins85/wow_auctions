@@ -72,5 +72,8 @@ Simple approach;
 ### Thoughts
 6 slots per potion; (2x5, 4x1) x2
 
-
-
+Lesser Invisibility Potion
+Arcane Elixir
+Gift of Arthas
+Ghost dye
+greater fire protection pot

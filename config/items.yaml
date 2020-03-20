@@ -146,7 +146,7 @@ Winter Squid:
   max_stack: 20  
 Elixir of Shadow Power:
   backup_price: null
-  full_deposit: null
+  full_deposit: 19
   label: Sell
   made_from:
     Crystal Vial: 1
@@ -226,7 +226,7 @@ Flash Powder:
     Melue: 20
 Free Action Potion:
   backup_price: null
-  full_deposit: null
+  full_deposit: 36
   label: Sell
   made_from:
     Empty Vial: 2
@@ -254,7 +254,7 @@ Grave Moss:
   max_stack: 20
 Greater Arcane Protection Potion:
   backup_price: null
-  full_deposit: null
+  full_deposit: 444
   label: Sell
   made_from:
     Crystal Vial: 1
@@ -337,6 +337,15 @@ Lesser Eternal Essence:
   full_deposit: null
   label: Commodities
   max_stack: 10
+Lesser Invisibility Potion:
+  backup_price: null
+  full_deposit: 60
+  label: Sell
+  made_from:
+    Fadeleaf: 1
+    Leaded Vial: 1
+    Wild Steelbloom: 1
+  max_stack: 5
 Limited Invulnerability Potion:
   backup_price: null
   full_deposit: 12
@@ -428,8 +437,8 @@ Superior Mana Potion:
   max_stack: 5
 Swiftness Potion:
   backup_price: null
-  full_deposit: null
-  label: Standards
+  full_deposit: 12
+  label: Sell
   made_from:
     Briarthorn: 1
     Empty Vial: 1

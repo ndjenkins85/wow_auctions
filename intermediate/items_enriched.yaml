@@ -1,7 +1,7 @@
 Arcane Crystal:
-  auction_success: null
+  auction_success: 1.0
   backup_price: 600000
-  buy_price: 618419.52
+  buy_price: 611418.266668
   full_deposit: 1200
   label: Commodities
   material_cost: null
@@ -10,34 +10,34 @@ Arcane Crystal:
     Bluem: 1
     "Emili\xF8": 1
     Melue: 1
-  sell_price: 620315.6
-  std_price: 45821.822714452224
+  sell_price: 642654.0
+  std_price: 47020.857050525796
 Arcane Elixir:
-  auction_success: 0.9871794871794872
+  auction_success: 0.9882352941176471
   backup_price: 9000
   buy_price: .nan
   full_deposit: 240
-  gross_profit: 2705
+  gross_profit: 2195
   label: Sell
   made_from:
     Blindweed: 1
     Crystal Vial: 1
     Goldthorn: 1
-  material_cost: 6046
+  material_cost: 5823
   max_stack: 5
-  min_list_price: 7400
-  sell_price: 9215.36
-  std_price: 2351.260004760748
+  min_list_price: 7100
+  sell_price: 8443.8
+  std_price: 2287.3159266727125
 Arcanite Bar:
-  auction_success: 0.7391304347826086
+  auction_success: 0.7551020408163265
   backup_price: 700000
   buy_price: .nan
   full_deposit: null
   label: Commodities
   material_cost: null
   max_stack: 10
-  sell_price: 722634.16
-  std_price: 62616.6831987218
+  sell_price: 727662.16
+  std_price: 62087.06912627948
 Blackmouth Oil:
   auction_success: null
   backup_price: 3600
@@ -47,7 +47,7 @@ Blackmouth Oil:
   made_from:
     Empty Vial: 1
     Oily Blackmouth: 2
-  material_cost: 3457
+  material_cost: 4017
   max_stack: 20
   sell_price: .nan
   std_price: 1067.7904390152692
@@ -66,13 +66,13 @@ Blinding Powder:
 Blindweed:
   auction_success: 1.0
   backup_price: null
-  buy_price: 3506.037037037037
+  buy_price: 3309.8370370370367
   full_deposit: null
   label: Buy
   material_cost: null
   max_stack: 20
   sell_price: 4931.4
-  std_price: 715.1265987609071
+  std_price: 673.1115152634629
 Briarthorn:
   auction_success: 1.0
   backup_price: 300
@@ -120,25 +120,25 @@ Dense Sharpening Stones:
 Dream Dust:
   auction_success: null
   backup_price: null
-  buy_price: 1761.2468880000001
+  buy_price: 1781.732888
   full_deposit: null
   label: Buy
   material_cost: null
   max_stack: 20
   sell_price: .nan
-  std_price: 427.7600219286043
+  std_price: 414.4845004226178
 Dreamfoil:
   auction_success: 0.875
   backup_price: null
-  buy_price: 5494.96
+  buy_price: 5493.96
   full_deposit: null
   label: Buy
   material_cost: null
   max_stack: 20
   sell_price: 6972.84
-  std_price: 2656.8021887927903
+  std_price: 2604.267033643714
 Elemental Sharpening Stone:
-  auction_success: 0.625
+  auction_success: 0.7
   backup_price: null
   buy_price: 79899.2
   full_deposit: null
@@ -148,132 +148,134 @@ Elemental Sharpening Stone:
   self_demand:
     Melue: 3
     Zegna: 3
-  sell_price: 94955.55555555556
-  std_price: 24549.310477193863
+  sell_price: 102963.63636363637
+  std_price: 26205.38146675568
 Elixir of Fortitude:
-  auction_success: 0.9204545454545454
+  auction_success: 0.811965811965812
   backup_price: null
   buy_price: .nan
   full_deposit: 60
-  gross_profit: 4694
+  gross_profit: 4268
   label: Sell
   made_from:
     Goldthorn: 1
     Leaded Vial: 1
     Wild Steelbloom: 1
-  material_cost: 8114
+  material_cost: 7310
   max_stack: 5
-  min_list_price: 9500
+  min_list_price: 8700
   self_demand:
     Zegna: 5
-  sell_price: 13487.32
-  std_price: 2937.630446516892
+  sell_price: 12200.0
+  std_price: 2989.5376593662772
 Elixir of Giants:
-  auction_success: 0.9543568464730291
+  auction_success: 0.9377593360995851
   backup_price: null
   buy_price: 7943.692307692308
   full_deposit: 420
-  gross_profit: 2809
+  gross_profit: 2510
   label: Sell
   made_from:
     Crystal Vial: 1
     Gromsblood: 1
     Sungrass: 1
-  material_cost: 6177
+  material_cost: 6321
   max_stack: 5
-  min_list_price: 7500
+  min_list_price: 7700
   self_demand:
     Melue: 5
     Zegna: 5
-  sell_price: 9480.0
-  std_price: 1978.1284163530206
+  sell_price: 9324.0
+  std_price: 1820.502190111384
 Elixir of Greater Agility:
   auction_success: 0.966804979253112
   backup_price: null
   buy_price: .nan
   full_deposit: 360
-  gross_profit: 1130
+  gross_profit: 1992
   label: Sell
   made_from:
     Crystal Vial: 1
     Goldthorn: 1
     Sungrass: 1
-  material_cost: 5690
+  material_cost: 5873
   max_stack: 5
-  min_list_price: 7000
+  min_list_price: 7200
   self_demand:
     Melue: 5
     Zegna: 5
-  sell_price: 7192.0
-  std_price: 2035.5251725780493
+  sell_price: 8292.0
+  std_price: 1982.145305667091
 Elixir of Greater Intellect:
-  auction_success: 0.7272727272727273
+  auction_success: 0.7567567567567568
   backup_price: null
   buy_price: 3589.2
   full_deposit: 600
-  gross_profit: 2752
+  gross_profit: 2684
   label: Sell
   made_from:
     Blindweed: 1
     Khadgar's Whiskers: 1
     Leaded Vial: 1
-  material_cost: 3838
+  material_cost: 3641
   max_stack: 5
-  min_list_price: 5200
+  min_list_price: 5000
   self_demand: {}
-  sell_price: 7109.44
-  std_price: 2730.8514618643976
+  sell_price: 6812.36
+  std_price: 2668.5993041109864
 Elixir of Shadow Power:
-  auction_success: 1.0
+  auction_success: 0.8494623655913979
   backup_price: null
   buy_price: .nan
-  full_deposit: null
+  full_deposit: 19
+  gross_profit: 5938
   label: Sell
   made_from:
     Crystal Vial: 1
     Ghost Mushroom: 3
-  material_cost: 27115
+  material_cost: 28164
   max_stack: 5
-  sell_price: 31653.48
-  std_price: 4231.856081862439
+  min_list_price: 30600
+  sell_price: 35900.0
+  std_price: 3793.647055143044
 Elixir of Superior Defense:
-  auction_success: 0.6596858638743456
+  auction_success: 0.6224066390041494
   backup_price: null
   buy_price: .nan
   full_deposit: 300
-  gross_profit: 2112
+  gross_profit: 633
   label: Sell
   made_from:
     Crystal Vial: 1
     Leaded Vial: 2
     Stonescale Eel: 2
     Sungrass: 1
-  material_cost: 7665
+  material_cost: 7837
   max_stack: 5
-  min_list_price: 9200
+  min_list_price: 9300
   self_demand:
     Zegna: 5
-  sell_price: 10399.92
-  std_price: 3473.7158851933723
+  sell_price: 9036.0
+  std_price: 3438.5511312358253
 Elixir of the Mongoose:
-  auction_success: 0.991701244813278
+  auction_success: 0.979253112033195
   backup_price: null
   buy_price: 49397.74
   full_deposit: 744
-  gross_profit: 6395
+  gross_profit: 2076
   label: Sell
   made_from:
     Crystal Vial: 1
     Mountain Silversage: 2
     Plaguebloom: 2
-  material_cost: 51514
+  material_cost: 52146
   max_stack: 5
-  min_list_price: 55100
+  min_list_price: 55800
   self_demand:
     Melue: 5
     Zegna: 5
-  sell_price: 60964.0
-  std_price: 8536.049772020875
+  sell_price: 57092.64
+  std_price: 8140.455048408607
 Empty Vial:
   auction_success: null
   backup_price: 3
@@ -301,61 +303,61 @@ Essence of Water:
   label: Commodities
   material_cost: null
   max_stack: 10
-  sell_price: 102077.28
-  std_price: 27121.061192377278
+  sell_price: 101429.28
+  std_price: 26885.067850252522
 Fadeleaf:
   auction_success: 0.9821428571428571
   backup_price: null
-  buy_price: 4787.746668
+  buy_price: 4814.386668
   full_deposit: null
   label: Buy
   material_cost: null
   max_stack: 20
   sell_price: 7360.4
-  std_price: 1524.235631909863
+  std_price: 1519.439709136912
 Fire Oil:
   auction_success: 0.5
   backup_price: null
-  buy_price: 1486.7279999999998
+  buy_price: 1749.7916666666667
   full_deposit: null
   label: Intermediate
   made_from:
     Empty Vial: 1
     Firefin Snapper: 2
-  material_cost: 1167
+  material_cost: 861
   max_stack: 20
   sell_price: 2638.3636363636365
-  std_price: 2116.5812590070373
+  std_price: 1894.2829530251079
 Fire Protection Potion:
-  auction_success: 0.9585062240663901
+  auction_success: 0.91701244813278
   backup_price: null
   buy_price: 17230.305554166665
   full_deposit: 96
-  gross_profit: 4580
+  gross_profit: 3581
   label: Sell
   made_from:
     Empty Vial: 1
     Firefin Snapper: 2
     Leaded Vial: 1
     Small Flame Sac: 1
-  material_cost: 13165
+  material_cost: 11698
   max_stack: 5
-  min_list_price: 14800
+  min_list_price: 13300
   self_demand:
     Melue: 5
     Zegna: 5
-  sell_price: 18683.333333333332
-  std_price: 6553.823997352909
+  sell_price: 16092.0
+  std_price: 6474.336704188146
 Firefin Snapper:
   auction_success: null
   backup_price: null
-  buy_price: 582.001428
+  buy_price: 429.2807692307693
   full_deposit: null
   label: Buy
   material_cost: null
   max_stack: 20
   sell_price: .nan
-  std_price: 188.17336225002197
+  std_price: 173.43869780203934
 Flash Powder:
   auction_success: null
   backup_price: null
@@ -369,43 +371,45 @@ Flash Powder:
   sell_price: .nan
   std_price: null
 Free Action Potion:
-  auction_success: 0.8252427184466019
+  auction_success: 0.8285714285714286
   backup_price: null
   buy_price: 9916.923076923076
-  full_deposit: null
+  full_deposit: 36
+  gross_profit: 4058
   label: Sell
   made_from:
     Empty Vial: 2
     Leaded Vial: 1
     Oily Blackmouth: 4
     Stranglekelp: 1
-  material_cost: 8445
+  material_cost: 9596
   max_stack: 5
+  min_list_price: 11100
   self_demand:
     Melue: 5
     Zegna: 5
-  sell_price: 13980.16
-  std_price: 2524.7730366139244
+  sell_price: 14380.12
+  std_price: 2659.741904349044
 Ghost Mushroom:
   auction_success: 1.0
   backup_price: null
-  buy_price: 8905.041666666666
+  buy_price: 9254.965279166667
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 20
   sell_price: 10187.6
-  std_price: 630.5938067522612
+  std_price: 568.6794002057181
 Goldthorn:
   auction_success: 1.0
   backup_price: null
-  buy_price: 2140.733515384615
+  buy_price: 2113.96
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 20
   sell_price: 3837.64
-  std_price: 606.1046597195426
+  std_price: 521.0877841510278
 Grave Moss:
   auction_success: 0.9148936170212766
   backup_price: null
@@ -417,22 +421,24 @@ Grave Moss:
   sell_price: 8867.6
   std_price: 2235.6248699301095
 Greater Arcane Protection Potion:
-  auction_success: 0.6721991701244814
+  auction_success: 0.6208333333333333
   backup_price: null
   buy_price: 14481.09090909091
-  full_deposit: null
+  full_deposit: 444
+  gross_profit: 2580
   label: Sell
   made_from:
     Crystal Vial: 1
     Dream Dust: 1
     Dreamfoil: 1
-  material_cost: 7656
+  material_cost: 7675
   max_stack: 5
+  min_list_price: 9200
   self_demand:
     Melue: 5
     Zegna: 5
-  sell_price: 9788.0
-  std_price: 2367.3825453449745
+  sell_price: 10972.0
+  std_price: 2288.311518609527
 Greater Eternal Essence:
   auction_success: null
   backup_price: null
@@ -455,7 +461,7 @@ Greater Shadow Protection Potion:
     Fadeleaf: 4
     Grave Moss: 4
     Leaded Vial: 1
-  material_cost: 45437
+  material_cost: 45543
   max_stack: 5
   self_demand:
     Melue: 2
@@ -463,22 +469,22 @@ Greater Shadow Protection Potion:
   sell_price: 69326.96
   std_price: 13066.311986819994
 Greater Stoneshield Potion:
-  auction_success: 0.7666666666666667
+  auction_success: 0.7475247524752475
   backup_price: null
   buy_price: .nan
   full_deposit: 444
-  gross_profit: 928
+  gross_profit: 1341
   label: Sell
   made_from:
     Crystal Vial: 1
     Leaded Vial: 3
     Stonescale Eel: 3
     Thorium Ore: 1
-  material_cost: 8023
+  material_cost: 7902
   max_stack: 5
-  min_list_price: 9500
-  sell_price: 9532.0
-  std_price: 3398.928531910362
+  min_list_price: 9400
+  sell_price: 9848.0
+  std_price: 3632.1747287433554
 Grilled Squid:
   auction_success: null
   backup_price: null
@@ -497,13 +503,13 @@ Grilled Squid:
 Gromsblood:
   auction_success: 1.0
   backup_price: null
-  buy_price: 2627.898668
+  buy_price: 2561.6805541666668
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 20
   sell_price: 3873.3636363636365
-  std_price: 341.5764415801576
+  std_price: 338.66384989618774
 Heavy Runecloth Bandage:
   auction_success: null
   backup_price: null
@@ -530,21 +536,21 @@ Instant Poison V:
   sell_price: .nan
   std_price: null
 Invisibility Potion:
-  auction_success: 0.6233766233766234
+  auction_success: 0.6100917431192661
   backup_price: null
   buy_price: 19305.0
   full_deposit: 300
-  gross_profit: 6892
+  gross_profit: 3969
   label: Sell
   made_from:
     Crystal Vial: 1
     Ghost Mushroom: 1
     Sungrass: 1
-  material_cost: 12454
+  material_cost: 13014
   max_stack: 5
-  min_list_price: 14200
-  sell_price: 20484.0
-  std_price: 5822.546575207144
+  min_list_price: 14800
+  sell_price: 18000.0
+  std_price: 5379.569723641653
 Khadgar's Whiskers:
   auction_success: null
   backup_price: 300
@@ -574,24 +580,38 @@ Lesser Eternal Essence:
   max_stack: 10
   sell_price: .nan
   std_price: 3010.8917686333793
+Lesser Invisibility Potion:
+  auction_success: null
+  backup_price: null
+  buy_price: .nan
+  full_deposit: 60
+  label: Sell
+  made_from:
+    Fadeleaf: 1
+    Leaded Vial: 1
+    Wild Steelbloom: 1
+  material_cost: 10010
+  max_stack: 5
+  sell_price: .nan
+  std_price: 1711.9393388785713
 Limited Invulnerability Potion:
-  auction_success: 1.0
+  auction_success: 0.9017341040462428
   backup_price: null
   buy_price: .nan
   full_deposit: 12
-  gross_profit: 2846
+  gross_profit: 1920
   label: Sell
   made_from:
     Blindweed: 2
     Crystal Vial: 1
     Ghost Mushroom: 1
-  material_cost: 16317
+  material_cost: 16274
   max_stack: 5
   min_list_price: 18100
   self_demand:
     Zegna: 5
-  sell_price: 20172.0
-  std_price: 3652.0558427213873
+  sell_price: 19153.846153846152
+  std_price: 3194.4589964232528
 Major Health Potion:
   auction_success: null
   backup_price: null
@@ -606,62 +626,62 @@ Major Health Potion:
   sell_price: .nan
   std_price: null
 Mighty Rage Potion:
-  auction_success: 0.8796680497925311
+  auction_success: 0.8921161825726142
   backup_price: null
   buy_price: .nan
   full_deposit: 300
-  gross_profit: 2609
+  gross_profit: 6203
   label: Sell
   made_from:
     Crystal Vial: 1
     Gromsblood: 3
-  material_cost: 8283
+  material_cost: 8085
   max_stack: 5
-  min_list_price: 9700
+  min_list_price: 9500
   self_demand:
     Zegna: 15
-  sell_price: 11504.166666666666
-  std_price: 2292.175882306297
+  sell_price: 15074.75
+  std_price: 2370.4080573961696
 Mountain Silversage:
   auction_success: 1.0
   backup_price: null
-  buy_price: 13338.653846153846
+  buy_price: 13857.141666666668
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 20
   sell_price: 14506.48
-  std_price: 2187.5788453330388
+  std_price: 2088.654154334102
 Oily Blackmouth:
   auction_success: null
   backup_price: null
-  buy_price: 1727.48
+  buy_price: 2007.039656
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 20
   sell_price: .nan
-  std_price: 388.39895114460893
+  std_price: 360.22752446321596
 Plaguebloom:
   auction_success: 0.9864864864864865
   backup_price: null
-  buy_price: 12218.680667999999
+  buy_price: 12016.052
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 20
   sell_price: 16654.041666666668
-  std_price: 3216.2041638302176
+  std_price: 3179.7267161503755
 Small Flame Sac:
   auction_success: 1.0
   backup_price: null
-  buy_price: 11966.96
+  buy_price: 10804.692307692309
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 5
   sell_price: 23768.12
-  std_price: 4137.012553753423
+  std_price: 4088.2177601916806
 Soothing Spices:
   auction_success: null
   backup_price: 128
@@ -674,13 +694,13 @@ Soothing Spices:
 Stonescale Eel:
   auction_success: 1.0
   backup_price: null
-  buy_price: 2025.8019304347827
+  buy_price: 2006.8101833333333
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 20
   sell_price: 3941.0
-  std_price: 1054.9521975966788
+  std_price: 1053.1608636331257
 Stonescale Oil:
   auction_success: 1.0
   backup_price: null
@@ -690,30 +710,30 @@ Stonescale Oil:
   made_from:
     Leaded Vial: 1
     Stonescale Eel: 1
-  material_cost: 2057
+  material_cost: 2038
   max_stack: 20
   sell_price: 4513.68
   std_price: 1267.014658573682
 Stranglekelp:
   auction_success: 1.0
   backup_price: null
-  buy_price: 1497.593332
+  buy_price: 1530.6333319999999
   full_deposit: null
   label: Buy
   material_cost: null
   max_stack: 20
   sell_price: 1434.48
-  std_price: 464.5620915938971
+  std_price: 461.293340763187
 Sungrass:
   auction_success: 0.9545454545454546
   backup_price: null
-  buy_price: 3149.899104166667
+  buy_price: 3359.558
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 20
   sell_price: 4697.44
-  std_price: 720.8578442676874
+  std_price: 691.2123032541173
 Superior Health Potion:
   auction_success: null
   backup_price: null
@@ -737,36 +757,38 @@ Superior Mana Potion:
     Blindweed: 2
     Crystal Vial: 1
     Sungrass: 2
-  material_cost: 13711
+  material_cost: 13738
   max_stack: 5
   sell_price: 15496.04
-  std_price: 2553.443332260153
+  std_price: 2527.730602734398
 Swiftness Potion:
   auction_success: 1.0
   backup_price: null
   buy_price: .nan
-  full_deposit: null
-  label: Standards
+  full_deposit: 12
+  gross_profit: 2649
+  label: Sell
   made_from:
     Briarthorn: 1
     Empty Vial: 1
     Swiftthistle: 1
-  material_cost: 4328
+  material_cost: 4894
   max_stack: 5
+  min_list_price: 6100
   self_demand:
     Zegna: 5
   sell_price: 7940.12
-  std_price: 1620.8064073596975
+  std_price: 1613.7092979879303
 Swiftthistle:
   auction_success: 1.0
   backup_price: 5000
-  buy_price: 3989.8007799999996
+  buy_price: 4555.947448000001
   full_deposit: null
   label: Other
   material_cost: null
   max_stack: 20
   sell_price: 5063.5
-  std_price: 1020.8578814971198
+  std_price: 997.263843198563
 Tender Wolf Meat:
   auction_success: null
   backup_price: 700
@@ -818,23 +840,23 @@ Thorium Bar:
 Thorium Ore:
   auction_success: null
   backup_price: null
-  buy_price: 1450.2279999999998
+  buy_price: 1386.128
   full_deposit: null
   label: Buy
   material_cost: null
   max_stack: 10
   sell_price: 2414.6666666666665
-  std_price: 590.92081378698
+  std_price: 586.2798399282494
 Wild Steelbloom:
   auction_success: 0.9716981132075472
   backup_price: null
-  buy_price: 5941.844571999999
+  buy_price: 5164.492752173913
   full_deposit: null
   label: Snatch
   material_cost: null
   max_stack: 20
   sell_price: 8149.12
-  std_price: 2216.099151501731
+  std_price: 2025.7856050484097
 Winter Squid:
   auction_success: null
   backup_price: 700000

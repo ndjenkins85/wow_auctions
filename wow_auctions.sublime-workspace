@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"Swift",
+				"Swiftthistle"
+			],
+			[
+				"items_",
+				"items_of_interest"
+			],
+			[
+				"get",
+				"get_general_settings"
+			],
+			[
+				"chara",
+				"character_needs"
+			],
+			[
 				"date",
 				"date"
 			],
@@ -43,41 +59,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "inventory.yaml",
-			"settings":
-			{
-				"buffer_size": 3675,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/Auc-Advanced.lua",
-			"settings":
-			{
-				"buffer_size": 48043,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "recipes.yaml",
-			"settings":
-			{
-				"buffer_size": 1583,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "README.md",
-			"settings":
-			{
-				"buffer_size": 3887,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "README.md"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -127,15 +108,39 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/nicholasjenkins/Documents/wow_auctions"
+		"/Users/nicholasjenkins/Documents/wow_auctions",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config",
+		"/Users/nicholasjenkins/Documents/wow_auctions/data",
+		"/Users/nicholasjenkins/Documents/wow_auctions/intermediate"
 	],
 	"file_history":
 	[
+		"/Users/nicholasjenkins/Documents/wow_auctions/utils.py",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config/items.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/README.md",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config/general_settings.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/intermediate/items_enriched.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config/items_of_interest.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config/recipes.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/data/BeanCounter.lua",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config/self_demand.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config/settings.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/intermediate/auctions_full.parquet",
+		"/Users/nicholasjenkins/Documents/wow_auctions/data/ArkInventory.lua",
+		"/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/Auc-Advanced.lua",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config/recipes.dot",
+		"/Users/nicholasjenkins/Documents/wow_auctions/.gitignore",
+		"/Users/nicholasjenkins/Documents/wow_auctions/cp.sh",
+		"/Users/nicholasjenkins/Documents/wow_auctions/inventory.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/self_demand.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/recipes.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/items_of_interest.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config.yaml",
+		"/Users/nicholasjenkins/Documents/wow_auctions/old/slots.yaml",
 		"/Users/nicholasjenkins/Documents/wow_auctions/copy_data.sh",
 		"/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/ArkInventory.lua",
 		"/Users/nicholasjenkins/Documents/soccer_betting_sim/scrape/year_-2006-2007_page_1.txt",
 		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-1124-open.html",
-		"/Users/nicholasjenkins/Documents/wow_auctions/recipes.yaml",
 		"/Users/nicholasjenkins/Documents/personalmonies/snapshots/2020-03-01.yaml",
 		"/Users/nicholasjenkins/Documents/personalmonies/statement_parsing.yaml",
 		"/Users/nicholasjenkins/Documents/personalmonies/statements/2020-03-01/activity.csv",
@@ -144,9 +149,7 @@
 		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-22700-open.html",
 		"/Users/nicholasjenkins/Downloads/WhatsApp Chat with TThomas.txt",
 		"/Users/nicholasjenkins/Google Drive/Documents/07_Tax/US Tax 2019/Foreign_tax.txt",
-		"/Users/nicholasjenkins/Documents/wow_auctions/self_demand.yaml",
 		"/Users/nicholasjenkins/Documents/wow_auctions/sales_approach.txt",
-		"/Users/nicholasjenkins/Documents/wow_auctions/inventory.yaml",
 		"/Users/nicholasjenkins/Documents/wow_auctions/gold.yaml",
 		"/Users/nicholasjenkins/Documents/wow_auctions/slots.yaml",
 		"/Users/nicholasjenkins/Documents/wow_auctions/BeanCounter.lua",
@@ -210,13 +213,14 @@
 	],
 	"find":
 	{
-		"height": 30.0
+		"height": 42.0
 	},
 	"find_in_files":
 	{
 		"height": 175.0,
 		"where_history":
 		[
+			"<current file>"
 		]
 	},
 	"find_state":
@@ -224,6 +228,50 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"material_cost = 0",
+			"item_prices",
+			"details",
+			"inventory",
+			"lesser invis",
+			"fortitude",
+			"fire protect",
+			".nan",
+			"empty vi",
+			"squid",
+			"tender wolf",
+			"tender wold",
+			"Khadgar's Whiskers",
+			"empty vial",
+			"cost",
+			"load_items",
+			"df['category'] = df['item'].apply(lambda x:",
+			"get_items",
+			"get_interesting_items_and_stacks",
+			"get_interest",
+			"raw=",
+			"get_interesting_items_and_stacks",
+			"  made_from: {}",
+			"greater in",
+			"elixir of great",
+			"greater intellect",
+			"Emili",
+			"get_",
+			"recipe",
+			"items_of",
+			"settings = ",
+			"path_settings",
+			"settings",
+			"get_inventory",
+			"4402:",
+			"small flame",
+			":",
+			"item.12360.",
+			"oily b",
+			"small flame sac",
+			"thorium",
+			":\\s\\d*",
+			":\\s1*",
+			"[*]",
 			"arcane"
 		],
 		"highlight": true,
@@ -232,6 +280,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
+			"\\n",
+			" ",
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -242,126 +294,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "inventory.yaml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3675,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								122,
-								122
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/Auc-Advanced.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 48043,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 28921.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "recipes.yaml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1583,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								592,
-								592
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "README.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3887,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3886,
-								3886
-							]
-						],
-						"settings":
-						{
-							"auto_name": "README.md",
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1028.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -427,12 +361,12 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 120.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 592.0
 	},
 	"selected_group": 0,
 	"settings":
@@ -442,7 +376,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 343.0,
+	"side_bar_width": 97.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

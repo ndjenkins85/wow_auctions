@@ -77,3 +77,19 @@ Arcane Elixir
 Gift of Arthas
 Ghost dye
 greater fire protection pot
+
+Log in Amazoni,
+Record AH prices
+Check mail
+Check mail on all characters as required
+Log out
+Run program, produces SELL lists. Records what is unsellable (price too low), and out of stock. Records inventory contents
+* Sell as 5 stack / (Short 2h / Long overnight / VL)
+Exit, run following.
+* Sell as 1 stack / (Short 2h / Long overnight / VL)
+Generates BUY list as well
+
+Compare average buy herbs vs average sell potion; do so over a period of time, as a profitability line
+
+
+

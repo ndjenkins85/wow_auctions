@@ -16,6 +16,8 @@ Arcane Elixir:
     Crystal Vial: 1
     Goldthorn: 1
   max_stack: 5
+  self_demand:
+    Amazoni: 50  
 Arcanite Bar:
   backup_price: 700000
   full_deposit: null
@@ -85,6 +87,7 @@ Elixir of Fortitude:
   max_stack: 5
   self_demand:
     Zegna: 5
+    Amazoni: 50    
 Elixir of Giants:
   backup_price: null
   full_deposit: 420
@@ -97,6 +100,7 @@ Elixir of Giants:
   self_demand:
     Melue: 5
     Zegna: 5
+    Amazoni: 50
 Elixir of Greater Agility:
   backup_price: null
   full_deposit: 360
@@ -109,6 +113,7 @@ Elixir of Greater Agility:
   self_demand:
     Melue: 5
     Zegna: 5
+    Amazoni: 50
 Elixir of Greater Intellect:
   backup_price: null
   full_deposit: 600
@@ -118,7 +123,8 @@ Elixir of Greater Intellect:
     Blindweed: 1
     Khadgar's Whiskers: 1 
   max_stack: 5
-  self_demand: {}
+  self_demand:     
+    Amazoni: 20
 Tender Wolf Meat:
   backup_price: 700
   full_deposit: null
@@ -152,6 +158,8 @@ Elixir of Shadow Power:
     Crystal Vial: 1
     Ghost Mushroom: 3
   max_stack: 5
+  self_demand:     
+    Amazoni: 50  
 Elixir of Superior Defense:
   backup_price: null
   full_deposit: 300
@@ -163,7 +171,8 @@ Elixir of Superior Defense:
     Sungrass: 1
   max_stack: 5
   self_demand:
-    Zegna: 5
+    Zegna: 5    
+    Amazoni: 50    
 Elixir of the Mongoose:
   backup_price: null
   full_deposit: 744
@@ -176,6 +185,7 @@ Elixir of the Mongoose:
   self_demand:
     Melue: 5
     Zegna: 5
+    Amazoni: 50    
 Essence of Undead:
   backup_price: null
   full_deposit: null
@@ -212,6 +222,7 @@ Fire Protection Potion:
   self_demand:
     Melue: 5
     Zegna: 5
+    Amazoni: 50    
 Firefin Snapper:
   backup_price: null
   full_deposit: null
@@ -223,7 +234,7 @@ Flash Powder:
   label: Standards
   max_stack: 20
   self_demand:
-    Melue: 20
+    Melue: 20    
 Free Action Potion:
   backup_price: null
   full_deposit: 36
@@ -237,6 +248,7 @@ Free Action Potion:
   self_demand:
     Melue: 5
     Zegna: 5
+    Amazoni: 50    
 Ghost Mushroom:
   backup_price: null
   full_deposit: null
@@ -264,6 +276,7 @@ Greater Arcane Protection Potion:
   self_demand:
     Melue: 5
     Zegna: 5
+    Amazoni: 50    
 Greater Eternal Essence:
   backup_price: null
   full_deposit: null
@@ -283,6 +296,7 @@ Greater Shadow Protection Potion:
   self_demand:
     Melue: 2
     Zegna: 2
+    Amazoni: 20    
 Greater Stoneshield Potion:
   backup_price: null
   full_deposit: 444
@@ -293,6 +307,9 @@ Greater Stoneshield Potion:
     Stonescale Eel: 3
     Thorium Ore: 1
   max_stack: 5
+  self_demand:
+    Zegna: 5
+    Amazoni: 50  
 Grilled Squid:
   backup_price: null
   full_deposit: null
@@ -332,6 +349,9 @@ Invisibility Potion:
     Ghost Mushroom: 1
     Sungrass: 1
   max_stack: 5
+  self_demand:
+    Amazoni: 50
+    Zegna: 5
 Lesser Eternal Essence:
   backup_price: null
   full_deposit: null
@@ -346,6 +366,8 @@ Lesser Invisibility Potion:
     Leaded Vial: 1
     Wild Steelbloom: 1
   max_stack: 5
+  self_demand:
+    Amazoni: 20
 Limited Invulnerability Potion:
   backup_price: null
   full_deposit: 12
@@ -357,6 +379,7 @@ Limited Invulnerability Potion:
   max_stack: 5
   self_demand:
     Zegna: 5
+    Amazoni: 50
 Major Health Potion:
   backup_price: null
   full_deposit: null
@@ -375,6 +398,7 @@ Mighty Rage Potion:
   max_stack: 5
   self_demand:
     Zegna: 15
+    Amazoni: 50    
 Mountain Silversage:
   backup_price: null
   full_deposit: null
@@ -446,6 +470,7 @@ Swiftness Potion:
   max_stack: 5
   self_demand:
     Zegna: 5
+    Amazoni: 20
 Tender Wolf Steak:
   backup_price: null
   full_deposit: null

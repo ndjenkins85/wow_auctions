@@ -232,7 +232,7 @@ def generate_auction_history(verbose=False):
     df_interest.sort_values('timestamp').to_parquet('intermediate/auctions.parquet', compression='gzip')
 
 
-def add_item_prices(MAX_RECENT=25, MIN_RECENT=5, MAX_SUCCESS=250, MIN_SUCCESS=10, MIN_PROFIT_MARGIN=1000):
+def generate_historic_average_prices(verbose=False, MAX_RECENT=25, MIN_RECENT=5, MAX_SUCCESS=250, MIN_SUCCESS=10, MIN_PROFIT_MARGIN=1000):
     """ Enriches the user items listing with pricing data from analysis
         Analysed within recent X transactions; yields average buy_price, sell_price
         Calculates material costs for any crafted item, and other costs
@@ -250,6 +250,8 @@ def add_item_prices(MAX_RECENT=25, MIN_RECENT=5, MAX_SUCCESS=250, MIN_SUCCESS=10
     item_counts = recent_df.groupby(['auction_type', 'item'])['price_per'].count().unstack().T.fillna(0)
     item_prices = item_prices[item_counts>=MIN_RECENT]
     item_std = df.groupby(['item'])['price_per'].std().to_dict()
+
+    item_prices[['buy_price']].dropna().to_parquet('intermediate/buy_prices.parquet', compression='gzip')
 
     # Ensures the user_items data is populated if not present in auction history, with dummy backup data
     for item in user_items:
@@ -279,41 +281,104 @@ def add_item_prices(MAX_RECENT=25, MIN_RECENT=5, MAX_SUCCESS=250, MIN_SUCCESS=10
     df_success = df_success[df_success['rank']>=MIN_SUCCESS]
 
     # Calcualte success%
-    df_success = df_success.groupby('item')['auction_success'].mean()
-    item_success = df_success.to_dict()            
-        
-    # Save enrichments to user_items dict
-    for item, details in user_items.items():
-        if item in item_costs:
-            user_items[item]['material_cost'] = int(item_costs[item])
-        else:
-            user_items[item]['material_cost'] = None
-            
-        # TODO: May need to fix the formatting of outputs of .nan if its a problem downstream
-        if item in item_prices.index:
-            user_items[item]['buy_price'] = float(item_prices.loc[item, 'buy_price'])
-        else:
-            user_items[item]['buy_price'] = None
+    df_success = df_success.groupby('item')['auction_success'].mean()          
 
-        if item in item_prices.index:            
-            user_items[item]['sell_price'] = float(item_prices.loc[item, 'sell_price'])            
-        else:
-            user_items[item]['sell_price'] = None
-            
-        if item in item_std:
-            user_items[item]['std_price'] = item_std[item]
-        else:
-            user_items[item]['std_price'] = None
-            
-        if item in item_success:
-            user_items[item]['auction_success'] = item_success[item]
-        else:
-            user_items[item]['auction_success'] = None            
-            
-            
-            
-    profit = pd.DataFrame.from_dict(user_items).T
-    profit = profit[['sell_price', 'material_cost', 'full_deposit', 'std_price', 'auction_success']].dropna()
+    item_details = item_prices.join(df_success)
+    full_deposit = pd.Series({item: details.get('full_deposit') for item, details in user_items.items()})
+    item_details['full_deposit'] = full_deposit
+    item_details['material_cost'] = pd.Series(item_costs)
+    profit = item_details[['sell_price', 'material_cost', 'full_deposit', 'auction_success']].dropna()
+
+    profit['gross_profit'] = (profit['sell_price'] - 
+                        profit['material_cost'] - 
+                        (profit['sell_price'] * 0.05) - 
+                        (profit['full_deposit'] * (1 - profit['auction_success'])))
+
+    profit['min_list_price'] = ((profit['material_cost'] + 
+                                 (profit['full_deposit'] * (1 - profit['auction_success']))) + 
+                                MIN_PROFIT_MARGIN) * 1.05
+
+    # Round to nearest silver, bit more readable
+    profit['min_list_price'] = (profit['min_list_price'].astype(float) / 100).astype(int)*100
+    if verbose:
+        print(profit['min_list_price'])
+
+    profit.to_parquet('intermediate/sell_prices.parquet', compression='gzip')
+
+
+def get_profits(date=None, item=None):
+    df_raw = pd.read_parquet('intermediate/auctions.parquet')
+    df_raw = df_raw.drop_duplicates(subset=['auction_type','item', 'timestamp'])
+
+    df_failed = df_raw[df_raw['auction_type'].isin(['failed'])]
+    df_success = df_raw[df_raw['auction_type'].isin(['buy_price', 'sell_price'])]
+    df_auction_type = df_success.set_index(['auction_type','item', 'timestamp'])['price_per'].unstack().T
+
+    item_history = df_success.set_index(['item','auction_type', 'timestamp'])['price_per'].unstack().T
+    general_profit = ((df_auction_type['sell_price'].sum(axis=1).cumsum() - df_auction_type['buy_price'].sum(axis=1).cumsum()) / 10000).astype(int)
+
+    if item:
+        item_history[item].dropna(how='all').plot()
+    elif date:
+        general_profit.loc[date:].plot()
+
+
+def generate_market_average_prices(MAX_RECENT=25, MIN_RECENT=5):
+    
+    user_items = load_items()
+    df = pd.read_parquet('intermediate/auctions.parquet')    
+
+    df['rank'] = df.groupby(['auction_type', 'item'])['timestamp'].rank(ascending=False)
+    recent_df = df[df['rank']<=MAX_RECENT]
+
+    item_prices = recent_df.groupby(['auction_type', 'item'])['price_per'].mean().unstack().T
+    item_counts = recent_df.groupby(['auction_type', 'item'])['price_per'].count().unstack().T.fillna(0)
+    item_prices = item_prices[item_counts>=MIN_RECENT]
+    item_std = df.groupby(['item'])['price_per'].std().to_dict()
+
+    # Ensures the user_items data is populated if not present in auction history, with dummy backup data
+    for item in user_items:
+        if item not in item_prices.index:
+            item_prices.loc[item] = user_items[item]['backup_price']
+
+    item_prices.to_parquet('intermediate/market_average_prices.parquet', compression='gzip')
+
+
+def generate_item_sell_prices(MAX_SUCCESS=250, MIN_SUCCESS=10, MIN_PROFIT_MARGIN=1000):
+
+    user_items = load_items()
+
+    item_prices = pd.read_parquet('intermediate/market_average_prices.parquet')
+
+    # Given the average recent buy price, calculate material costs per item
+    item_costs = {}
+    for item, details in user_items.items():
+        material_cost = 0
+        for ingredient, count in details.get('made_from', {}).items():
+            material_cost += item_prices.loc[ingredient, 'buy_price'] * count
+        if material_cost is not 0:
+            item_costs[item] = int(material_cost)
+
+    df_success = pd.read_parquet('intermediate/auctions.parquet')
+
+    # Look at the most recent X sold or failed auctions
+    df_success = df_success[df_success['auction_type'].isin(['sell_price', 'failed'])]
+    df_success['rank'] = df_success.groupby(['item'])['timestamp'].rank(ascending=False)
+
+    # Limit to recent successful auctions
+    df_success = df_success[df_success['rank']<=MAX_SUCCESS]
+    df_success['auction_success'] = df_success['auction_type'].replace({'sell_price': 1, 'failed': 0})
+    # Ensure theres at least some auctions for a resonable ratio
+    df_success = df_success[df_success['rank']>=MIN_SUCCESS]
+
+    # Calcualte success%
+    df_success = df_success.groupby('item')['auction_success'].mean()          
+
+    item_details = item_prices.join(df_success)
+    full_deposit = pd.Series({item: details.get('full_deposit') for item, details in user_items.items()})
+    item_details['full_deposit'] = full_deposit
+    item_details['material_cost'] = pd.Series(item_costs)
+    profit = item_details[['sell_price', 'material_cost', 'full_deposit', 'auction_success']].dropna()
 
     profit['gross_profit'] = (profit['sell_price'] - 
                         profit['material_cost'] - 
@@ -327,10 +392,4 @@ def add_item_prices(MAX_RECENT=25, MIN_RECENT=5, MAX_SUCCESS=250, MIN_SUCCESS=10
     # Round to nearest silver, bit more readable
     profit['min_list_price'] = (profit['min_list_price'].astype(float) / 100).astype(int)*100
 
-    for item, details in user_items.items():
-        if item in profit.index:
-            user_items[item]['gross_profit'] = int(profit.loc[item, 'gross_profit'])
-            user_items[item]['min_list_price'] = int(profit.loc[item, 'min_list_price'])
-            
-    with open('intermediate/items_enriched.yaml', 'w') as f:
-        yaml.dump(user_items, f)    
+    profit.to_parquet('intermediate/item_sell_profit.parquet', compression='gzip')        

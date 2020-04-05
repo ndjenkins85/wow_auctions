@@ -26,13 +26,38 @@ The capital constraint is an interesting one, and exists alongside another featu
 We also don't have unlimited inventory space, so we should be careful to avoid a situation where low value items are crowding all the space. 
 
 ### Data tools at our disposal
-Getting the right data at the right time is the name of our game. Short of having a full robot which can do everything for us (against the TOS), we will have to play within the rules of the game. We can move data in and out of the game via a restricted number of 'addons'. After some research, there are some addons which are perfect for us to start to gather data.
+Getting the right data at the right time is the name of our game. Short of having a full robot which can do everything for us (against the TOS), we will have to play within the rules of the game. We can move data in and out of the game via a restricted number of 'addons'. After some research, there are some addons which are perfect for us to interact with data. The plan is to update information, run program and seed new information, return to game.
 - Auctioneer allows us to set a value for items and buy any item at that price or lower
 - ArkInventory tells us how many of each item we have in our inventory
 - Beancounter tells us our historic gold in / gold out, how much of each item has been bought, for how much, and how many auctions failed
 
 ### The plan
-With this in mind we propose the following plan to iterate towards a good model. For each item create a price (y) that is affected by: current inventory, upward demand, upward sale price. The best measure for how we are performing is given as 'gold per hour'.
+The overall aim is to increase profits given constraints of potion actual sale price, herb actual buy price, sale volume, herb market, time taken, capital, inventory space, current inventory, personal demand, fail rate, (out of stock), actions per day.
+
+For simplicity, we assume unlimited capital and inventory space.
+
+We allocate a fixed cost for time variable, such that we're earning 100g/h. We may earn higher or lower than this, this just becomes a constant in calculations help factor time. We introduce this for time spent crafting, and a general per unit penalty for time spent doing actions such as mail, movement, auctioning, relogging. The generic cost is expressed as 3s per item (about 100g/h), and crafting depends on recipe.
+
+Personal demand is the number of goods reserved for use by my characters. We create a list of minimum reserved goods and subtract that from available inventory. This is mainly a convenience, and this approach can quickly inform how to top up all the characters.
+
+The number of times we log in to execute the process helps determine inventory size. This is because we add more items to AH each time. When inventory size cap goes up, so too does our buy price as we look to fill the order. Thus we add a forward projection on how many logins we would do in the next week. 
+
+To further simplify the problem, we will set soft and hard caps on max/min inventory of certain items, to help guide how pricing may scale based on how easy it is to attain items. 
+
+This leaves us with buy prices, current inventory, sale prices, auction fail rate, and out of stock
+
+Buy prices are determined by two variables, market rate on all goods for offer, and the current inventory size. When the inventory is high, we should lower our minimum buy price, to only accept bargins. When our inventory is low, we need to raise our buy price to repopulate.
+
+To help analyse estimated profits, we record a geometric weighted average buy price figure.
+
+Minimum sale price is determined by modelled value of the product given herb costs, vial costs, auction clears, auction fee, time spent to create (fixed g/h variable), global unit cost (another fixed price varible).
+
+We use the minimum sale price to determine if we should sell. Any additional sale price is factored into an geometric weighted average sell price.
+
+When the item does not meet the minimum sale price, this should signal that we carry less of the product and wait for input prices to cool down.
+
+Note; What happens when the product is unavailable?
+
 
 #### Herb buying process
 
@@ -90,6 +115,8 @@ Exit, run following.
 Generates BUY list as well
 
 Compare average buy herbs vs average sell potion; do so over a period of time, as a profitability line
+
+--- Pick up project after creating second account, meaning need to find and collate information from a different source.
 
 
 

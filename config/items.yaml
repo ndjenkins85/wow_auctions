@@ -1,7 +1,7 @@
 Arcane Crystal:
   backup_price: 600000
   full_deposit: 1200
-  label: Commodities
+  snatch_group: Commodities
   max_stack: 10
   self_demand:
     Bluem: 1
@@ -10,7 +10,7 @@ Arcane Crystal:
 Arcane Elixir:
   backup_price: 9000
   full_deposit: 240
-  label: Sell
+  snatch_group: Sell
   made_from:
     Blindweed: 1
     Crystal Vial: 1
@@ -21,12 +21,12 @@ Arcane Elixir:
 Arcanite Bar:
   backup_price: 700000
   full_deposit: null
-  label: Commodities
+  snatch_group: Commodities
   max_stack: 10
 Blackmouth Oil:
   backup_price: 3600
   full_deposit: 100
-  label: Intermediate
+  snatch_group: Input
   made_from:
     Empty Vial: 1
     Oily Blackmouth: 2
@@ -34,26 +34,26 @@ Blackmouth Oil:
 Blinding Powder:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   max_stack: 20
   self_demand:
     Melue: 20
 Blindweed:
   backup_price: null
   full_deposit: null
-  label: Buy
+  snatch_group: Buy
   max_stack: 20
 Crippling Poison II:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   max_stack: 20
   self_demand:
     Melue: 20
 Dense Sharpening Stones:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   max_stack: 20
   self_demand:
     Melue: 20
@@ -61,17 +61,17 @@ Dense Sharpening Stones:
 Dream Dust:
   backup_price: null
   full_deposit: null
-  label: Buy
+  snatch_group: Buy
   max_stack: 20
 Dreamfoil:
   backup_price: null
   full_deposit: null
-  label: Buy
+  snatch_group: Buy
   max_stack: 20
 Elemental Sharpening Stone:
   backup_price: null
   full_deposit: null
-  label: Commodities
+  snatch_group: Commodities
   max_stack: 20
   self_demand:
     Melue: 3
@@ -79,7 +79,7 @@ Elemental Sharpening Stone:
 Elixir of Fortitude:
   backup_price: null
   full_deposit: 60
-  label: Sell
+  snatch_group: Sell
   made_from:
     Goldthorn: 1
     Leaded Vial: 1
@@ -91,7 +91,7 @@ Elixir of Fortitude:
 Elixir of Giants:
   backup_price: null
   full_deposit: 420
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Gromsblood: 1
@@ -104,7 +104,7 @@ Elixir of Giants:
 Elixir of Greater Agility:
   backup_price: null
   full_deposit: 360
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Goldthorn: 1
@@ -117,7 +117,7 @@ Elixir of Greater Agility:
 Elixir of Greater Intellect:
   backup_price: null
   full_deposit: 600
-  label: Sell
+  snatch_group: Sell
   made_from:
     Leaded Vial: 1
     Blindweed: 1
@@ -128,32 +128,32 @@ Elixir of Greater Intellect:
 Tender Wolf Meat:
   backup_price: 700
   full_deposit: null
-  label: Other
+  snatch_group: Other
   max_stack: 20
 Khadgar's Whiskers:
   backup_price: 300
   full_deposit: null
-  label: Other
+  snatch_group: Other
   max_stack: 20
 Swiftthistle:
   backup_price: 5000
   full_deposit: null
-  label: Other
+  snatch_group: Other
   max_stack: 20  
 Briarthorn:
   backup_price: 300
   full_deposit: null
-  label: Other
+  snatch_group: Other
   max_stack: 20  
 Winter Squid:
   backup_price: 700000
   full_deposit: null
-  label: Other
+  snatch_group: Other
   max_stack: 20  
 Elixir of Shadow Power:
   backup_price: null
   full_deposit: 19
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Ghost Mushroom: 3
@@ -163,7 +163,7 @@ Elixir of Shadow Power:
 Elixir of Superior Defense:
   backup_price: null
   full_deposit: 300
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Leaded Vial: 2
@@ -176,7 +176,7 @@ Elixir of Superior Defense:
 Elixir of the Mongoose:
   backup_price: null
   full_deposit: 744
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Mountain Silversage: 2
@@ -189,22 +189,22 @@ Elixir of the Mongoose:
 Essence of Undead:
   backup_price: null
   full_deposit: null
-  label: Commodities
+  snatch_group: Commodities
   max_stack: 10
 Essence of Water:
   backup_price: null
   full_deposit: null
-  label: Commodities
+  snatch_group: Commodities
   max_stack: 10
 Fadeleaf:
   backup_price: null
   full_deposit: null
-  label: Buy
+  snatch_group: Buy
   max_stack: 20
 Fire Oil:
   backup_price: null
   full_deposit: null
-  label: Intermediate
+  snatch_group: Intermediate
   made_from:
     Empty Vial: 1
     Firefin Snapper: 2
@@ -212,7 +212,7 @@ Fire Oil:
 Fire Protection Potion:
   backup_price: null
   full_deposit: 96
-  label: Sell
+  snatch_group: Sell
   made_from:
     Empty Vial: 1
     Firefin Snapper: 2
@@ -226,19 +226,19 @@ Fire Protection Potion:
 Firefin Snapper:
   backup_price: null
   full_deposit: null
-  label: Buy
+  snatch_group: Buy
   max_stack: 20
 Flash Powder:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   max_stack: 20
   self_demand:
     Melue: 20    
 Free Action Potion:
   backup_price: null
   full_deposit: 36
-  label: Sell
+  snatch_group: Sell
   made_from:
     Empty Vial: 2
     Leaded Vial: 1
@@ -252,22 +252,22 @@ Free Action Potion:
 Ghost Mushroom:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 20
 Goldthorn:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 20
 Grave Moss:
   backup_price: null
   full_deposit: null
-  label: Buy
+  snatch_group: Buy
   max_stack: 20
 Greater Arcane Protection Potion:
   backup_price: null
   full_deposit: 444
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Dream Dust: 1
@@ -280,12 +280,12 @@ Greater Arcane Protection Potion:
 Greater Eternal Essence:
   backup_price: null
   full_deposit: null
-  label: Commodities
+  snatch_group: Commodities
   max_stack: 10
 Greater Shadow Protection Potion:
   backup_price: null
   full_deposit: null
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Dreamfoil: 1
@@ -300,7 +300,7 @@ Greater Shadow Protection Potion:
 Greater Stoneshield Potion:
   backup_price: null
   full_deposit: 444
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Leaded Vial: 3
@@ -313,7 +313,7 @@ Greater Stoneshield Potion:
 Grilled Squid:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   made_from:
     Winter Squid: 1
     Soothing Spices: 1
@@ -323,12 +323,12 @@ Grilled Squid:
 Gromsblood:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 20
 Heavy Runecloth Bandage:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   max_stack: 20
   self_demand:
     Melue: 40
@@ -336,14 +336,14 @@ Heavy Runecloth Bandage:
 Instant Poison V:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   max_stack: 20
   self_demand:
     Melue: 20
 Invisibility Potion:
   backup_price: null
   full_deposit: 300
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Ghost Mushroom: 1
@@ -355,12 +355,12 @@ Invisibility Potion:
 Lesser Eternal Essence:
   backup_price: null
   full_deposit: null
-  label: Commodities
+  snatch_group: Commodities
   max_stack: 10
 Lesser Invisibility Potion:
   backup_price: null
   full_deposit: 60
-  label: Sell
+  snatch_group: Sell
   made_from:
     Fadeleaf: 1
     Leaded Vial: 1
@@ -371,7 +371,7 @@ Lesser Invisibility Potion:
 Limited Invulnerability Potion:
   backup_price: null
   full_deposit: 12
-  label: Sell
+  snatch_group: Sell
   made_from:
     Blindweed: 2
     Crystal Vial: 1
@@ -383,7 +383,7 @@ Limited Invulnerability Potion:
 Major Health Potion:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   max_stack: 5
   self_demand:
     Melue: 5
@@ -391,7 +391,7 @@ Major Health Potion:
 Mighty Rage Potion:
   backup_price: null
   full_deposit: 300
-  label: Sell
+  snatch_group: Sell
   made_from:
     Crystal Vial: 1
     Gromsblood: 3
@@ -402,32 +402,32 @@ Mighty Rage Potion:
 Mountain Silversage:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 20
 Oily Blackmouth:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 20
 Plaguebloom:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 20
 Small Flame Sac:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 5
 Stonescale Eel:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 20
 Stonescale Oil:
   backup_price: null
   full_deposit: null
-  label: Intermediate
+  snatch_group: Intermediate
   made_from:
     Leaded Vial: 1
     Stonescale Eel: 1
@@ -435,17 +435,17 @@ Stonescale Oil:
 Stranglekelp:
   backup_price: null
   full_deposit: null
-  label: Buy
+  snatch_group: Buy
   max_stack: 20
 Sungrass:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 20
 Superior Health Potion:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   max_stack: 5
   self_demand:
     Melue: 5
@@ -453,7 +453,7 @@ Superior Health Potion:
 Superior Mana Potion:
   backup_price: null
   full_deposit: null
-  label: Sell
+  snatch_group: Sell
   made_from:
     Blindweed: 2
     Crystal Vial: 1
@@ -462,7 +462,7 @@ Superior Mana Potion:
 Swiftness Potion:
   backup_price: null
   full_deposit: 12
-  label: Sell
+  snatch_group: Sell
   made_from:
     Briarthorn: 1
     Empty Vial: 1
@@ -474,7 +474,7 @@ Swiftness Potion:
 Tender Wolf Steak:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   made_from:
     Tender Wolf Meat: 1
     Soothing Spices: 1
@@ -485,38 +485,38 @@ Tender Wolf Steak:
 Thistle Tea:
   backup_price: null
   full_deposit: null
-  label: Standards
+  snatch_group: Standards
   max_stack: 10
   self_demand:
     Melue: 15
 Thorium Bar:
   backup_price: null
   full_deposit: null
-  label: Commodities
+  snatch_group: Commodities
   max_stack: 20
 Thorium Ore:
   backup_price: null
   full_deposit: null
-  label: Buy
+  snatch_group: Buy
   max_stack: 10
 Wild Steelbloom:
   backup_price: null
   full_deposit: null
-  label: Snatch
+  snatch_group: Snatch
   max_stack: 20
 Crystal Vial:
   backup_price: 400
-  label: Other
+  snatch_group: Other
   max_stack: 20
 Leaded Vial:
   backup_price: 32
-  label: Other
+  snatch_group: Other
   max_stack: 20
 Empty Vial:
   backup_price: 3
-  label: Other
+  snatch_group: Other
   max_stack: 20
 Soothing Spices:
   backup_price: 128
-  label: Other
+  snatch_group: Other
   max_stack: 20  

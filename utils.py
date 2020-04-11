@@ -5,19 +5,36 @@ import pandas as pd
 from math import ceil
 from datetime import datetime as dt
 
+    
+def merge(a, b, path=None):
+    "merges b into a"
+    if path is None: path = []
+    for key in b:
+        if key in a:
+            if isinstance(a[key], dict) and isinstance(b[key], dict):
+                merge(a[key], b[key], path + [str(key)])
+            elif a[key] == b[key]:
+                pass # same leaf value
+            else:
+                pass #raise Exception('Conflict at %s' % '.'.join(path + [str(key)]))
+        else:
+            a[key] = b[key]
+    return a
+
+
 def read_lua(datasource: str):
     """ Attempts to read lua from the given locations
     """
-    path_live = f"/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/{datasource}.lua" 
-    path_local = f"data/{datasource}.lua"
 
-    try:
+    account_data = {'BLUEM': None, '396255466#1': None}
+    for account_name in account_data.keys():
+        path_live = f"/Applications/World of Warcraft/_classic_/WTF/Account/{account_name}/SavedVariables/{datasource}.lua" 
+
         with open(path_live, 'r') as f:
-            data = lua.decode('{'+f.read()+'}')
-    except:        
-        with open(path_local, 'r') as f:
-            data = lua.decode('{'+f.read()+'}')
-    return data
+            account_data[account_name] = lua.decode('{'+f.read()+'}')
+
+    return merge(account_data['BLUEM'], account_data['396255466#1'])
+ 
 
 
 def load_items():
@@ -98,10 +115,10 @@ def generate_inventory(verbose=False):
         f.write(str(total_monies))  
 
     # Add label and stack size info and save
-    item_labels = {item: details['label'] for item, details in user_items.items()}
+    item_labels = {item: details['snatch_group'] for item, details in user_items.items()}
     stack_sizes = {item: details.get('max_stack') for item, details in user_items.items()}
 
-    df['label'] = df['item'].apply(lambda x: item_labels.get(x))
+    df['snatch_group'] = df['item'].apply(lambda x: item_labels.get(x))
     df['stack_size'] = df['item'].apply(lambda x: stack_sizes.get(x))
     df.to_parquet('intermediate/inventory_full.parquet', compression='gzip')    
 
@@ -221,10 +238,10 @@ def generate_auction_history(verbose=False):
     df.to_parquet('intermediate/auctions_full.parquet', compression='gzip')
 
     user_items = load_items()
-    item_labels = {item: details['label'] for item, details in user_items.items()}
+    item_labels = {item: details['snatch_group'] for item, details in user_items.items()}
 
     df_interest = df.loc[df[df['item'].isin(user_items)].index]
-    df_interest['labels'] = df_interest['item'].replace(item_labels)
+    df_interest['snatch_group'] = df_interest['item'].replace(item_labels)
 
     if verbose:
         print(f"{df_interest.shape[0]} auction events of interest")

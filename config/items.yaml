@@ -121,7 +121,7 @@ Elixir of Greater Intellect:
   made_from:
     Leaded Vial: 1
     Blindweed: 1
-    Khadgar's Whiskers: 1 
+    Khadgar's Whisker: 1 
   max_stack: 5
   self_demand:     
     Amazoni: 20
@@ -130,7 +130,7 @@ Tender Wolf Meat:
   full_deposit: null
   snatch_group: Other
   max_stack: 20
-Khadgar's Whiskers:
+Khadgar's Whisker:
   backup_price: 300
   full_deposit: null
   snatch_group: Other

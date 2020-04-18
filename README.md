@@ -81,4 +81,4 @@ When the item does not meet the minimum sale price, this should signal that we c
 * Ghost Dye
 * Greater Fire Protection Potion
 
-![Potions](potions.png)
+![Potions](outputs/potions.png)

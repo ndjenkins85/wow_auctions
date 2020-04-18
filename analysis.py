@@ -146,7 +146,7 @@ def analyse_item_min_sell_price(MAX_SUCCESS=250, MIN_SUCCESS=10, MIN_PROFIT_MARG
             item_costs[item] = int(material_cost)
 
 
-    df_success = pd.read_parquet('full/auction_actions.parquet')        
+    df_success = pd.read_parquet('full/auction_activity.parquet')        
 
     # Look at the most recent X sold or failed auctions
     df_success = df_success[df_success['auction_type'].isin(['sell_price', 'failed'])]

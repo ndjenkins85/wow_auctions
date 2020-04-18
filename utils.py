@@ -283,20 +283,39 @@ def generate_auction_scandata(verbose=False):
     # Uncomment above for
     # full scandata reset
 
+    auction_scan_minprice = auction_data[auction_data['price_per']!=0]
+    auction_scan_minprice['price_per'] = auction_scan_minprice['price_per'].astype(int)
+    auction_scan_minprice.loc[:, 'auction_type'] = 'market'
+    auction_scan_minprice = auction_scan_minprice.groupby(['item', 'timestamp'])['price_per'].min().reset_index()
+
+    auction_scan_minprice.to_parquet('intermediate/auction_scan_minprice.parquet', compression='gzip')
+
     # Saves full backup and adds latest to full
     auction_data_repo = pd.read_parquet('full/auction_scandata.parquet')
     auction_data_repo.to_parquet('full_backup/auction_scandata.parquet', compression='gzip')
+    auction_scan_minprice_repo = pd.read_parquet('full/auction_scan_minprice.parquet')
+    auction_scan_minprice_repo.to_parquet('full_backup/auction_scan_minprice.parquet', compression='gzip')
     
     updated = '*not*'
     if auction_data['timestamp'].max() > auction_data_repo['timestamp'].max():
         updated = ''
         auction_data_repo = auction_data_repo.append(auction_data)
         auction_data_repo.to_parquet('full/auction_scandata.parquet', compression='gzip')
+
+        auction_scan_minprice_repo = auction_scan_minprice_repo.append(auction_scan_minprice)
+        auction_scan_minprice_repo.to_parquet('full/auction_scan_minprice.parquet', compression='gzip')
     
     unique_periods = len(auction_data_repo['timestamp'].unique())
     
     if verbose:
         print(f"Auction scandata full repository. {len(auction_data_repo)} records with {unique_periods} snapshots. Repository has {updated} been updated this run")
+
+
+
+
+    
+
+
 
 
 def generate_auction_activity(verbose=False):

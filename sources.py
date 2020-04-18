@@ -1,9 +1,11 @@
-import yaml
-from collections import defaultdict
-from slpp import slpp as lua #pip install git+https://github.com/SirAnthony/slpp
+"""
+This script reads raw sources and converts into more standard panda parquets
+"""
+
 import pandas as pd
-from math import ceil
+from collections import defaultdict
 from datetime import datetime as dt
+
 from utils import *
 
 pd.options.mode.chained_assignment = None  # default='warn'

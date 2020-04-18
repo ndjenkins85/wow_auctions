@@ -1,9 +1,9 @@
-import yaml
-from collections import defaultdict
-from slpp import slpp as lua #pip install git+https://github.com/SirAnthony/slpp
+"""
+This script contains analysis of the cleaned panda parquet sources
+It creates outputs for dashboard and lua policy updates
+"""
+
 import pandas as pd
-from math import ceil
-from datetime import datetime as dt
 import seaborn as sns
 import matplotlib.pyplot as plt
 

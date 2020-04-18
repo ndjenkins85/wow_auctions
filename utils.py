@@ -1,8 +1,9 @@
+"""
+This file contains shorter utilities to write/save raw files, and change data formats
+"""
+
 import yaml
-from collections import defaultdict
 from slpp import slpp as lua #pip install git+https://github.com/SirAnthony/slpp
-import pandas as pd
-from math import ceil
 from datetime import datetime as dt
 
     

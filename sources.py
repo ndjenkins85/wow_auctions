@@ -119,24 +119,13 @@ def generate_auction_scandata(verbose=False):
         Reads the raw scandata from both accounts, cleans and pulls latest only
         Saves latest scandata to intermediate and adds to a full database with backup
     """
-    raw_scan_data = read_lua('Auc-ScanData', merge_account_sources=False)
-
-    cleaned_scan_data = {account: format_auction_data(auction_data) for account, auction_data in raw_scan_data.items()}
-
-    latest_account_access = None
-    latest_account_time = pd.to_datetime('1985-05-15')
-    for account, auction_data in cleaned_scan_data.items():
-        if auction_data['timestamp'].max() > latest_account_time:
-            latest_account_time = auction_data['timestamp'].max()
-            latest_account_access = account
-
-    auction_data = cleaned_scan_data[latest_account_access]
+    auction_data = get_and_format_auction_data()
 
     # Saves latest scan to intermediate (immediate)
     auction_data.to_parquet('intermediate/auction_scandata.parquet', compression='gzip')
     
     if verbose:
-        print(f"Auction scandata loaded and cleaned. {len(auction_data)} records, last updated {latest_account_time} by {latest_account_access}")
+        print(f"Auction scandata loaded and cleaned. {len(auction_data)} records")
 
     # Uncomment below for
     # full scandata reset

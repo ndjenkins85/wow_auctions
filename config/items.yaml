@@ -1,5 +1,11 @@
+# Items is the central place to designate any item of interest
+# Adding an item as a key will ensure that item is included in filtering
+# backup_price is used for items that do not usually appear in AH (poisons, vials)
+# full_deposit (48h for single item) indicates if it's a sellable item
+# self_demand can be used to generate a shopping list of items needing replenishment
+# made_from is the recipe for the item including vials. Referenced items must be included in this doc
+
 Arcane Crystal:
-  backup_price: 600000
   full_deposit: 1200
   snatch_group: Commodities
   max_stack: 10
@@ -8,8 +14,8 @@ Arcane Crystal:
     Emiliø: 1
     Melue: 1
 Arcane Elixir:
-  backup_price: 9000
   full_deposit: 240
+  max_inventory: 60
   snatch_group: Sell
   made_from:
     Blindweed: 1
@@ -19,12 +25,10 @@ Arcane Elixir:
   self_demand:
     Amazoni: 50  
 Arcanite Bar:
-  backup_price: 700000
   full_deposit: null
   snatch_group: Commodities
   max_stack: 10
 Blackmouth Oil:
-  backup_price: 3600
   full_deposit: 100
   snatch_group: Input
   made_from:
@@ -32,26 +36,16 @@ Blackmouth Oil:
     Oily Blackmouth: 2
   max_stack: 20
 Blinding Powder:
-  backup_price: null
   full_deposit: null
   snatch_group: Standards
   max_stack: 20
   self_demand:
     Melue: 20
 Blindweed:
-  backup_price: null
   full_deposit: null
   snatch_group: Buy
   max_stack: 20
-Crippling Poison II:
-  backup_price: null
-  full_deposit: null
-  snatch_group: Standards
-  max_stack: 20
-  self_demand:
-    Melue: 20
-Dense Sharpening Stones:
-  backup_price: null
+Dense Sharpening Stone:
   full_deposit: null
   snatch_group: Standards
   max_stack: 20
@@ -59,17 +53,14 @@ Dense Sharpening Stones:
     Melue: 20
     Zegna: 20
 Dream Dust:
-  backup_price: null
   full_deposit: null
   snatch_group: Buy
   max_stack: 20
 Dreamfoil:
-  backup_price: null
   full_deposit: null
   snatch_group: Buy
   max_stack: 20
 Elemental Sharpening Stone:
-  backup_price: null
   full_deposit: null
   snatch_group: Commodities
   max_stack: 20
@@ -77,8 +68,8 @@ Elemental Sharpening Stone:
     Melue: 3
     Zegna: 3
 Elixir of Fortitude:
-  backup_price: null
   full_deposit: 60
+  max_inventory: 60  
   snatch_group: Sell
   made_from:
     Goldthorn: 1
@@ -89,8 +80,8 @@ Elixir of Fortitude:
     Zegna: 5
     Amazoni: 50    
 Elixir of Giants:
-  backup_price: null
   full_deposit: 420
+  max_inventory: 120  
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -102,8 +93,8 @@ Elixir of Giants:
     Zegna: 5
     Amazoni: 50
 Elixir of Greater Agility:
-  backup_price: null
   full_deposit: 360
+  max_inventory: 120  
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -114,45 +105,25 @@ Elixir of Greater Agility:
     Melue: 5
     Zegna: 5
     Amazoni: 50
-Elixir of Greater Intellect:
-  backup_price: null
-  full_deposit: 600
-  snatch_group: Sell
-  made_from:
-    Leaded Vial: 1
-    Blindweed: 1
-    Khadgar's Whisker: 1 
-  max_stack: 5
-  self_demand:     
-    Amazoni: 20
 Tender Wolf Meat:
-  backup_price: 700
-  full_deposit: null
-  snatch_group: Other
-  max_stack: 20
-Khadgar's Whisker:
-  backup_price: 300
   full_deposit: null
   snatch_group: Other
   max_stack: 20
 Swiftthistle:
-  backup_price: 5000
   full_deposit: null
   snatch_group: Other
   max_stack: 20  
 Briarthorn:
-  backup_price: 300
   full_deposit: null
   snatch_group: Other
   max_stack: 20  
 Winter Squid:
-  backup_price: 700000
   full_deposit: null
   snatch_group: Other
   max_stack: 20  
 Elixir of Shadow Power:
-  backup_price: null
   full_deposit: 19
+  max_inventory: 60  
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -161,8 +132,8 @@ Elixir of Shadow Power:
   self_demand:     
     Amazoni: 50  
 Elixir of Superior Defense:
-  backup_price: null
   full_deposit: 300
+  max_inventory: 60  
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -174,8 +145,8 @@ Elixir of Superior Defense:
     Zegna: 5    
     Amazoni: 50    
 Elixir of the Mongoose:
-  backup_price: null
   full_deposit: 744
+  max_inventory: 100  
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -186,23 +157,19 @@ Elixir of the Mongoose:
     Melue: 5
     Zegna: 5
     Amazoni: 50    
-Essence of Undead:
-  backup_price: null
+Essence of Undeath:
   full_deposit: null
   snatch_group: Commodities
   max_stack: 10
 Essence of Water:
-  backup_price: null
   full_deposit: null
   snatch_group: Commodities
   max_stack: 10
 Fadeleaf:
-  backup_price: null
   full_deposit: null
   snatch_group: Buy
   max_stack: 20
 Fire Oil:
-  backup_price: null
   full_deposit: null
   snatch_group: Intermediate
   made_from:
@@ -210,8 +177,8 @@ Fire Oil:
     Firefin Snapper: 2
   max_stack: 20
 Fire Protection Potion:
-  backup_price: null
   full_deposit: 96
+  max_inventory: 100  
   snatch_group: Sell
   made_from:
     Empty Vial: 1
@@ -224,20 +191,18 @@ Fire Protection Potion:
     Zegna: 5
     Amazoni: 50    
 Firefin Snapper:
-  backup_price: null
   full_deposit: null
   snatch_group: Buy
   max_stack: 20
 Flash Powder:
-  backup_price: null
   full_deposit: null
   snatch_group: Standards
   max_stack: 20
   self_demand:
     Melue: 20    
 Free Action Potion:
-  backup_price: null
   full_deposit: 36
+  max_inventory: 120  
   snatch_group: Sell
   made_from:
     Empty Vial: 2
@@ -250,23 +215,20 @@ Free Action Potion:
     Zegna: 5
     Amazoni: 50    
 Ghost Mushroom:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 20
 Goldthorn:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 20
 Grave Moss:
-  backup_price: null
   full_deposit: null
   snatch_group: Buy
   max_stack: 20
 Greater Arcane Protection Potion:
-  backup_price: null
   full_deposit: 444
+  max_inventory: 60  
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -278,13 +240,12 @@ Greater Arcane Protection Potion:
     Zegna: 5
     Amazoni: 50    
 Greater Eternal Essence:
-  backup_price: null
   full_deposit: null
   snatch_group: Commodities
   max_stack: 10
 Greater Shadow Protection Potion:
-  backup_price: null
-  full_deposit: null
+  full_deposit: 240
+  max_inventory: 40  
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -298,8 +259,8 @@ Greater Shadow Protection Potion:
     Zegna: 2
     Amazoni: 20    
 Greater Stoneshield Potion:
-  backup_price: null
   full_deposit: 444
+  max_inventory: 80  
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -311,7 +272,6 @@ Greater Stoneshield Potion:
     Zegna: 5
     Amazoni: 50  
 Grilled Squid:
-  backup_price: null
   full_deposit: null
   snatch_group: Standards
   made_from:
@@ -321,28 +281,19 @@ Grilled Squid:
   self_demand:
     Melue: 20
 Gromsblood:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 20
 Heavy Runecloth Bandage:
-  backup_price: null
   full_deposit: null
   snatch_group: Standards
   max_stack: 20
   self_demand:
     Melue: 40
     Zegna: 40
-Instant Poison V:
-  backup_price: null
-  full_deposit: null
-  snatch_group: Standards
-  max_stack: 20
-  self_demand:
-    Melue: 20
 Invisibility Potion:
-  backup_price: null
   full_deposit: 300
+  max_inventory: 80  
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -353,12 +304,10 @@ Invisibility Potion:
     Amazoni: 50
     Zegna: 5
 Lesser Eternal Essence:
-  backup_price: null
   full_deposit: null
   snatch_group: Commodities
   max_stack: 10
 Lesser Invisibility Potion:
-  backup_price: null
   full_deposit: 60
   snatch_group: Sell
   made_from:
@@ -369,9 +318,9 @@ Lesser Invisibility Potion:
   self_demand:
     Amazoni: 20
 Limited Invulnerability Potion:
-  backup_price: null
   full_deposit: 12
   snatch_group: Sell
+  max_inventory: 100  
   made_from:
     Blindweed: 2
     Crystal Vial: 1
@@ -380,8 +329,7 @@ Limited Invulnerability Potion:
   self_demand:
     Zegna: 5
     Amazoni: 50
-Major Health Potion:
-  backup_price: null
+Major Healing Potion:
   full_deposit: null
   snatch_group: Standards
   max_stack: 5
@@ -389,8 +337,8 @@ Major Health Potion:
     Melue: 5
     Zegna: 5
 Mighty Rage Potion:
-  backup_price: null
   full_deposit: 300
+  max_inventory: 120
   snatch_group: Sell
   made_from:
     Crystal Vial: 1
@@ -400,32 +348,26 @@ Mighty Rage Potion:
     Zegna: 15
     Amazoni: 50    
 Mountain Silversage:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 20
 Oily Blackmouth:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 20
 Plaguebloom:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 20
 Small Flame Sac:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 5
 Stonescale Eel:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 20
 Stonescale Oil:
-  backup_price: null
   full_deposit: null
   snatch_group: Intermediate
   made_from:
@@ -433,17 +375,14 @@ Stonescale Oil:
     Stonescale Eel: 1
   max_stack: 20
 Stranglekelp:
-  backup_price: null
   full_deposit: null
   snatch_group: Buy
   max_stack: 20
 Sungrass:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 20
-Superior Health Potion:
-  backup_price: null
+Superior Healing Potion:
   full_deposit: null
   snatch_group: Standards
   max_stack: 5
@@ -451,7 +390,6 @@ Superior Health Potion:
     Melue: 5
     Zegna: 5
 Superior Mana Potion:
-  backup_price: null
   full_deposit: null
   snatch_group: Sell
   made_from:
@@ -460,8 +398,8 @@ Superior Mana Potion:
     Sungrass: 2
   max_stack: 5
 Swiftness Potion:
-  backup_price: null
   full_deposit: 12
+  max_inventory: 40  
   snatch_group: Sell
   made_from:
     Briarthorn: 1
@@ -472,7 +410,6 @@ Swiftness Potion:
     Zegna: 5
     Amazoni: 20
 Tender Wolf Steak:
-  backup_price: null
   full_deposit: null
   snatch_group: Standards
   made_from:
@@ -483,24 +420,20 @@ Tender Wolf Steak:
     Melue: 20
     Zegna: 20
 Thistle Tea:
-  backup_price: null
   full_deposit: null
   snatch_group: Standards
   max_stack: 10
   self_demand:
     Melue: 15
 Thorium Bar:
-  backup_price: null
   full_deposit: null
   snatch_group: Commodities
   max_stack: 20
 Thorium Ore:
-  backup_price: null
   full_deposit: null
   snatch_group: Buy
   max_stack: 10
 Wild Steelbloom:
-  backup_price: null
   full_deposit: null
   snatch_group: Snatch
   max_stack: 20
@@ -519,4 +452,16 @@ Empty Vial:
 Soothing Spices:
   backup_price: 128
   snatch_group: Other
-  max_stack: 20  
+  max_stack: 20
+Instant Poison VI:
+  backup_price: 100
+  snatch_group: Standards
+  max_stack: 20
+  self_demand:
+    Melue: 20  
+Crippling Poison II:
+  backup_price: 100
+  snatch_group: Standards
+  max_stack: 20
+  self_demand:
+    Melue: 20    

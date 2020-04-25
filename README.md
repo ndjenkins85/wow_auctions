@@ -69,10 +69,12 @@ When the item does not meet the minimum sale price, this should signal that we c
 
 ### Next TODO
 
-- [X] Create web dashboard to display information and run aspects of program
+- [ ] Create web dashboard to display information and run aspects of program
 - [ ] Adjust min sell price to use item time price and global time price
 - [ ] Create buy policies for raw ingredients (snatch)
 - [ ] Create additional sell policies and checks (never empty AH, no min price spiking)
+- [ ] Create 'only' tracker to gradually increase the pool over a day's trading
+- [ ] Sell additional items smartly if i'm the lowest price
 
 ### Future potions
 

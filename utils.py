@@ -24,18 +24,17 @@ def source_merge(a, b, path=None):
     return a
 
 
-def read_lua(datasource: str, merge_account_sources=True):
+def read_lua(datasource: str, merge_account_sources=True, accounts=['BLUEM', '396255466#1']):
     """ Attempts to read lua from the given locations
     """
-
-    account_data = {'BLUEM': None, '396255466#1': None}
+    account_data = {key: None for key in accounts}
     for account_name in account_data.keys():
         path_live = f"/Applications/World of Warcraft/_classic_/WTF/Account/{account_name}/SavedVariables/{datasource}.lua" 
 
         with open(path_live, 'r') as f:
             account_data[account_name] = lua.decode('{'+f.read()+'}')
 
-    if merge_account_sources:
+    if merge_account_sources and len(accounts)>1:
         return source_merge(account_data['BLUEM'], account_data['396255466#1'])
     else:
          return account_data
@@ -55,23 +54,37 @@ def get_general_settings():
         return yaml.load(f, Loader=yaml.FullLoader) 
 
 
-def format_auction_data(ac):
+def get_and_format_auction_data():
     """ Reads the raw scandata dict dump and converts to usable dataframe    
     """
-    auction_data = []
+    path_live = f"/Applications/World of Warcraft/_classic_/WTF/Account/396255466#1/SavedVariables/Auc-ScanData.lua" 
 
-    for rope in ac['AucScanData']['scans']['Grobbulus']['ropes']:
-        auctions = rope[9:-3].split('},{')
-        for auction in auctions:
-            auction_data.append(auction.split('|')[-1].split(','))
+    ropes = []
+    with open(path_live, 'r') as f:
+        on = False
+        rope_count = 0
+        for line in f.readlines():
+            if on and rope_count<5:
+                ropes.append(line)
+                rope_count+=1
+            elif '["ropes"]' in line:
+                on = True
+
+    listings = []
+    for rope in ropes:
+        listings_part = rope.split('},{')
+        listings_part[0] = listings_part[0].split('{{')[1]
+        listings_part[-1] = listings_part[-1].split('},}')[0]
+
+        listings.extend(listings_part)
 
     # Contains lots of columns, we ignore ones we likely dont care about
-    # We apply transformations and relabel
-    df = pd.DataFrame(auction_data)
-    df['item'] = df[8].str.replace('"','')
+    # We apply transformations and relabel    
+    df = pd.DataFrame([x.split('|')[-1].split(',') for x in listings])
+    df['item'] = df[8].str.replace('"','').str[1:-1]
     df['count'] = df[10].replace('nil', 0).astype(int)
     df['price'] = df[16].astype(int)
-    df['agent'] = df[19].str.replace('"','')
+    df['agent'] = df[19].str.replace('"','').str[1:-1]
     df['timestamp'] = df[7].apply(lambda x: dt.fromtimestamp(int(x)))
 
     # There is some timing difference in the timestamp, we dont really care we just need time of pull

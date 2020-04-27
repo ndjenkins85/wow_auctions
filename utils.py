@@ -6,6 +6,7 @@ import yaml
 import pandas as pd
 from slpp import slpp as lua #pip install git+https://github.com/SirAnthony/slpp
 from datetime import datetime as dt
+import os
 
     
 def source_merge(a, b, path=None):
@@ -147,3 +148,12 @@ def dump_lua(data):
         return t
     print(f"Unknown type {type(data)}")
      
+
+def read_multiple_parquet(loc):
+    files = os.listdir(loc)
+    df_total =  pd.read_parquet(f"{loc}{files[0]}")
+    for file in files[1:]:
+        df = pd.read_parquet(f"{loc}{file}")
+        df_total.append(df)
+    return df    
+

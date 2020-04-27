@@ -11,10 +11,11 @@ from utils import *
 
 sns.set(rc={'figure.figsize':(11.7,8.27)})
 
-def analyse_item_prices(verbose=False, full_pricing=False):
+def analyse_item_prices(verbose=False, full_pricing=False, test=False):
     """
     Generate item prices based on all past auction activity and scans
     """
+
     auction_activity = pd.read_parquet('full/auction_activity.parquet')
     auction_activity = auction_activity[['item', 'timestamp', 'price_per', 'auction_type']]
 
@@ -39,17 +40,20 @@ def analyse_item_prices(verbose=False, full_pricing=False):
             if not price:
                 price = price_history.loc[item].ewm(alpha=0.2).mean().iloc[-1]
             item_prices[item] = price
-        
+    
     item_prices = pd.DataFrame.from_dict(item_prices, orient='index')
     item_prices.index.name = 'item'
     item_prices.columns = ['market_price']
+
+    if test: return None # avoid saves
+
     item_prices.to_parquet('intermediate/item_prices.parquet', compression='gzip')
     
     if verbose:
         print(f"Item prices calculated. {len(item_prices)} records")
 
 
-def analyse_sales_performance():
+def analyse_sales_performance(test=False):
     """
     Produces charts and tables to help measure performace
     """
@@ -88,17 +92,19 @@ def analyse_sales_performance():
 
     plt = sns.lineplot(data=holdings[['Mule monies', 'Mule inventory']], color="b")
     plt = sns.lineplot(data=holdings['Total holdings'], color="black").set_title('Total holdings')
-    plt.figure.savefig('outputs/holdings.png')
 
     latest_inventory = inventory_trade[inventory_trade['timestamp']==inventory_trade['timestamp'].max()]
     latest_inventory['total_value'] = (latest_inventory['total_value']/10000).round(2)
     latest_inventory = latest_inventory.groupby('item').sum()[['count', 'total_value']]
     latest_inventory = latest_inventory.sort_values('total_value', ascending=False)
-    latest_inventory.to_parquet('outputs/latest_inventory_value.parquet', compression='gzip')
 
     earnings = pd.DataFrame([holdings.iloc[-10], holdings.iloc[-1]])
     earnings.loc[str(earnings.index[1] - earnings.index[0])] = earnings.iloc[1] - earnings.iloc[0]
     earnings.index = earnings.index.astype(str)
+
+    if test: return None # avoid saves
+    plt.figure.savefig('outputs/holdings.png')    
+    latest_inventory.to_parquet('outputs/latest_inventory_value.parquet', compression='gzip')
     earnings.to_parquet('outputs/earnings_days.parquet', compression='gzip')
 
 
@@ -161,7 +167,7 @@ def analyse_auction_success(MAX_SUCCESS=250, MIN_SUCCESS=10):
     return df_success
 
 
-def analyse_item_min_sell_price(MIN_PROFIT_MARGIN=1000):
+def analyse_item_min_sell_price(MIN_PROFIT_MARGIN=1000, test=False):
     """
     Calculate minimum sell price for potions given raw item cost, deposit loss, AH cut, and min profit
     """
@@ -199,10 +205,11 @@ def analyse_item_min_sell_price(MIN_PROFIT_MARGIN=1000):
                                  (item_min_sale['deposit'] * (1 - item_min_sale['auction_success']))) + 
                                 MIN_PROFIT_MARGIN) * 1.05
 
+    if test: return None # avoid saves
     item_min_sale[['min_list_price']].to_parquet('intermediate/min_list_price.parquet', compression='gzip')
 
 
-def analyse_sell_data():
+def analyse_sell_data(test=False):
     """
     Creates dataframe of intellegence around the selling market conditions
 
@@ -279,10 +286,11 @@ def analyse_sell_data():
     df['storage'] = inventory_full[inventory_full['character']=='Amazoni'].groupby('item').sum()
     df['storage'] = df['storage'].fillna(0).astype(int)
 
+    if test: return None # avoid saves
     df.to_parquet('outputs/sell_policy.parquet', compression='gzip')
 
 
-def apply_sell_policy(sale_number=3, stack_size=5, duration='short', factor=1):
+def apply_sell_policy(sale_number=3, stack_size=5, duration='short', factor=1, test=False):
     """
     Given a datatable of the sell environment, create sell policy and save to WoW
     """
@@ -317,10 +325,12 @@ def apply_sell_policy(sale_number=3, stack_size=5, duration='short', factor=1):
     data = read_lua('Auc-Advanced', merge_account_sources=False)
     data = data.get('396255466#1')
     data['AucAdvancedConfig']['profile.Default']['util']['appraiser'] = new_appraiser
+
+    if test: return None # avoid saves    
     write_lua(data)
 
 
-def apply_buy_policy():
+def apply_buy_policy(additional_percent=1.0, test=False):
     """
     Determines herbs to buy based on potions in inventory. 
     Always buys at or below current market price.
@@ -387,7 +397,7 @@ def apply_buy_policy():
 
         # Filter to herbs below market price
         listings = auction_data[auction_data['item']==herb]
-        listings = listings[listings['price_per']<item_prices.loc[herb, 'market_price']]
+        listings = listings[listings['price_per']<(item_prices.loc[herb, 'market_price'] * additional_percent)]
         listings['cumsum'] = listings['count'].cumsum()
 
         # Filter to lowest priced herbs for the quantity needed
@@ -415,7 +425,8 @@ def apply_buy_policy():
         snatch[f"{row['code']}:0:0"]['price'] = int(row['buy_price'])
 
     data['AucAdvancedData']['UtilSearchUiData']['Current']['snatch.itemsList'] = snatch    
-    write_lua(data)
-
     herbs = herbs[['herbs_purchasing', 'buy_price']]
+
+    if test: return None # avoid saves
+    write_lua(data)
     herbs.to_parquet('outputs/buy_policy.parquet', compression='gzip')

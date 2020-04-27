@@ -10,7 +10,7 @@ from utils import *
 
 pd.options.mode.chained_assignment = None  # default='warn'
 
-def generate_inventory(verbose=False):
+def generate_inventory(verbose=False, test=False):
     """ Reads and reformats the Arkinventory data file into a pandas dataframe
     Loads yaml files to specify item locations and specific items of interest
     Saves down parquet file ready to go
@@ -66,33 +66,19 @@ def generate_inventory(verbose=False):
 
     df['timestamp'] = dt.now()
     df.columns = cols
-    df.to_parquet('intermediate/inventory.parquet', compression='gzip')
 
     df_monies = pd.Series(monies)
     df_monies.name = 'monies'
     df_monies = pd.DataFrame(df_monies)
     df_monies['timestamp'] = dt.now()
 
+    if test: return None # avoid saves
+    df.to_parquet('intermediate/inventory.parquet', compression='gzip')
     df_monies.to_parquet('intermediate/monies.parquet', compression='gzip')
 
     if verbose:
         print(f"Inventory formatted. {len(df)} records, {int(df_monies['monies'].sum()/10000)} total money across chars")
         
-
-    # Uncomment below for
-    # full scandata reset
-
-    # cols = ['monies', 'timestamp']
-    # auction_scandata_reset = pd.DataFrame(columns=cols)
-    # auction_scandata_reset.to_parquet('full/monies.parquet', compression='gzip')
-
-    # cols = ['character', 'location', 'item', 'count', 'timestamp']
-    # auction_scandata_reset = pd.DataFrame(columns=cols)
-    # auction_scandata_reset.to_parquet('full/inventory.parquet', compression='gzip')
-
-    # Uncomment above for
-    # full scandata reset  
-
     inventory_repo = pd.read_parquet('full/inventory.parquet')
     inventory_repo.to_parquet('full_backup/inventory.parquet', compression='gzip')
 
@@ -114,59 +100,43 @@ def generate_inventory(verbose=False):
         print(f"Inventory full repository. {len(inventory_repo)} records with {unique_periods} snapshots. Repository has {updated} been updated this run")
 
 
-def generate_auction_scandata(verbose=False):
+def generate_auction_scandata(verbose=False, test=False):
     """ Snapshot of all AH prices from latest scan
         Reads the raw scandata from both accounts, cleans and pulls latest only
         Saves latest scandata to intermediate and adds to a full database with backup
     """
     auction_data = get_and_format_auction_data()
 
+    auction_data = auction_data[auction_data['price_per']!=0]
+    auction_data['price_per'] = auction_data['price_per'].astype(int)
+    auction_data.loc[:, 'auction_type'] = 'market'
+
     # Saves latest scan to intermediate (immediate)
     auction_data.to_parquet('intermediate/auction_scandata.parquet', compression='gzip')
-    
-    if verbose:
-        print(f"Auction scandata loaded and cleaned. {len(auction_data)} records")
+    auction_data.to_parquet(f"full/auction_scandata/{str(auction_data['timestamp'].max())}.parquet", compression='gzip')
 
-    # Uncomment below for
-    # full scandata reset
+    print(f"Auction scandata loaded and cleaned. {len(auction_data)} records")
 
-    # # # ensure cols are same as those used in clean
-    #cols = ["timestamp", "item", "count", "price", "agent", "price_per"]
-    #auction_scandata_reset = pd.DataFrame(columns=cols)
-    #auction_scandata_reset.to_parquet('full/auction_scandata.parquet', compression='gzip')
-    
-    # Uncomment above for
-    # full scandata reset
+    items = load_items()
+    auction_scan_minprice = auction_data.copy()
 
-    auction_scan_minprice = auction_data[auction_data['price_per']!=0]
-    auction_scan_minprice['price_per'] = auction_scan_minprice['price_per'].astype(int)
-    auction_scan_minprice.loc[:, 'auction_type'] = 'market'
+    auction_scan_minprice = auction_scan_minprice[auction_scan_minprice['item'].isin(items)]
     auction_scan_minprice = auction_scan_minprice.groupby(['item', 'timestamp'])['price_per'].min().reset_index()
 
-    auction_scan_minprice.to_parquet('intermediate/auction_scan_minprice.parquet', compression='gzip')
-
-    # Saves full backup and adds latest to full
-    auction_data_repo = pd.read_parquet('full/auction_scandata.parquet')
-    auction_data_repo.to_parquet('full_backup/auction_scandata.parquet', compression='gzip')
     auction_scan_minprice_repo = pd.read_parquet('full/auction_scan_minprice.parquet')
-    auction_scan_minprice_repo.to_parquet('full_backup/auction_scan_minprice.parquet', compression='gzip')
-    
-    updated = '*not*'
-    if auction_data['timestamp'].max() > auction_data_repo['timestamp'].max():
-        updated = ''
-        auction_data_repo = auction_data_repo.append(auction_data)
-        auction_data_repo.to_parquet('full/auction_scandata.parquet', compression='gzip')
 
+    if test: return None # avoid saves    
+    auction_scan_minprice.to_parquet('intermediate/auction_scan_minprice.parquet', compression='gzip')
+    auction_scan_minprice_repo.to_parquet('full_backup/auction_scan_minprice.parquet', compression='gzip')
+
+    updated = '*not*'
+    if auction_scan_minprice['timestamp'].max() > auction_scan_minprice_repo['timestamp'].max():
+        updated = ''
         auction_scan_minprice_repo = auction_scan_minprice_repo.append(auction_scan_minprice)
         auction_scan_minprice_repo.to_parquet('full/auction_scan_minprice.parquet', compression='gzip')
-    
-    unique_periods = len(auction_data_repo['timestamp'].unique())
-    
-    if verbose:
-        print(f"Auction scandata full repository. {len(auction_data_repo)} records with {unique_periods} snapshots. Repository has {updated} been updated this run")
 
 
-def generate_auction_activity(verbose=False):
+def generate_auction_activity(verbose=False, test=False):
     """ Generates auction history parquet file with auctions of interest.
         Reads and parses Beancounter auction history across all characters
         Works the data into a labelled and cleaned pandas before parquet saves
@@ -207,17 +177,7 @@ def generate_auction_activity(verbose=False):
     df['price_per'] = round(df['price'] / df['count'], 4)
     df['timestamp'] = df['timestamp'].apply(lambda x: dt.fromtimestamp(int(x)))
 
-    if verbose:
+    if test: return None # avoid saves
+    if verbose: 
         print(f"Auction actions full repository. {df.shape[0]} records")
     df.to_parquet('full/auction_activity.parquet', compression='gzip')
-
-    # user_items = load_items()
-    # item_labels = {item: details['snatch_group'] for item, details in user_items.items()}
-
-    # df_interest = df.loc[df[df['item'].isin(user_items)].index]
-    # df_interest['snatch_group'] = df_interest['item'].replace(item_labels)
-
-    # if verbose:
-    #     print(f"{df_interest.shape[0]} auction events of interest")
-
-    # df_interest.sort_values('timestamp').to_parquet('intermediate/auctions.parquet', compression='gzip')

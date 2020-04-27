@@ -66,15 +66,15 @@ When the item does not meet the minimum sale price, this should signal that we c
 - [X] Analyse sales performance over time (money, inventory value)
 - [X] Analyse minimum sale price per item, given item input costs, AH cut, margin etc.
 - [X] Create sell policies, small discount on market price if above reserve. Allows adjustment of style
+- [X] Create buy policies for raw ingredients (snatch)
 
 ### Next TODO
 
-- [ ] Create web dashboard to display information and run aspects of program
-- [ ] Adjust min sell price to use item time price and global time price
-- [ ] Create buy policies for raw ingredients (snatch)
-- [ ] Create additional sell policies and checks (never empty AH, no min price spiking)
-- [ ] Create 'only' tracker to gradually increase the pool over a day's trading
-- [ ] Sell additional items smartly if i'm the lowest price
+- [ ] Optimize program to run faster
+- [ ] Buy list upgrades; current market price, estimated price, buy policy on or not
+- [ ] Web dashboard creation to display information and run program
+- [ ] Min sell price, use item time price and global time price
+- [ ] Sell policy upgrades, never empty AH, no min price spiking, im lowest price check, auto select amounts
 
 ### Future potions
 

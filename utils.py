@@ -157,3 +157,4 @@ def read_multiple_parquet(loc):
         df_total.append(df)
     return df    
 
+

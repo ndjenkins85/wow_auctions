@@ -132,7 +132,7 @@ def generate_auction_scandata(verbose=False, test=False):
     updated = '*not*'
     if auction_scan_minprice['timestamp'].max() > auction_scan_minprice_repo['timestamp'].max():
         updated = ''
-        auction_scan_minprice_repo = auction_scan_minprice_repo.append(auction_scan_minprice)
+        auction_scan_minprice_repo = pd.concat([auction_scan_minprice, auction_scan_minprice_repo], axis=1)
         auction_scan_minprice_repo.to_parquet('full/auction_scan_minprice.parquet', compression='gzip')
 
 

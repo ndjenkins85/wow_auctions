@@ -11,6 +11,7 @@ from utils import *
 
 sns.set(rc={'figure.figsize':(11.7,8.27)})
 
+
 def analyse_item_prices(verbose=False, full_pricing=False, test=False):
     """
     Generate item prices based on all past auction activity and scans
@@ -24,7 +25,7 @@ def analyse_item_prices(verbose=False, full_pricing=False, test=False):
     df_auction_prices = auction_scan_minprice.append(auction_activity)
 
     if full_pricing:
-        items = df_auction_prices['iten'].unique()
+        items = df_auction_prices['item'].unique()
     else:
         items = load_items()
 

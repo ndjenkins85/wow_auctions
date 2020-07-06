@@ -10,6 +10,7 @@ from utils import *
 
 pd.options.mode.chained_assignment = None  # default='warn'
 
+
 def generate_inventory(verbose=False, test=False):
     """ Reads and reformats the Arkinventory data file into a pandas dataframe
     Loads yaml files to specify item locations and specific items of interest

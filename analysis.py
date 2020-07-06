@@ -185,6 +185,9 @@ def analyse_item_min_sell_price(MIN_PROFIT_MARGIN=1000, MAT_DEV=0.5, test=False)
     item_prices.loc['Empty Vial'] = 3
 
     # Given the average recent buy price, calculate material costs per item
+
+    user_items = {key: value for key, value in user_items.items() if value.get('group') in ['Buy', 'Sell']}
+
     item_costs = {}
     for item, details in user_items.items():
         material_cost = 0

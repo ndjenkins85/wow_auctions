@@ -168,14 +168,18 @@ def analyse_auction_success(MAX_SUCCESS=250, MIN_SUCCESS=10):
     return df_success
 
 
-def analyse_item_min_sell_price(MIN_PROFIT_MARGIN=1000, test=False):
+def analyse_item_min_sell_price(MIN_PROFIT_MARGIN=1000, MAT_DEV=0.5, test=False):
     """
     Calculate minimum sell price for potions given raw item cost, deposit loss, AH cut, and min profit
     """
 
     user_items = load_items()
 
-    item_prices = pd.read_parquet('intermediate/item_prices.parquet')
+    #item_prices = pd.read_parquet('intermediate/item_prices.parquet')
+
+    item_prices = pd.read_parquet('intermediate/booty_data.parquet')
+    item_prices['market_price'] = item_prices['recent'] + (item_prices['stddev'] * MAT_DEV) 
+
     item_prices.loc['Crystal Vial'] = 400
     item_prices.loc['Leaded Vial'] = 32
     item_prices.loc['Empty Vial'] = 3
@@ -231,7 +235,7 @@ def analyse_sell_data(test=False):
     df['market_price'] = df['market_price'].fillna(df['min_list_price'] * 2)
 
     # Create sell price from market price, create check if lower than reserve
-    df['sell_price'] = (df['market_price'] * 0.9933).astype(int)
+    df['sell_price'] = (df['market_price'] * 0.9933).astype(int) # Undercut %
     df['infeasible'] = (df['min_list_price'] >= df['sell_price']).astype(int)
     df['min_list_price'] = df['min_list_price'].astype(int)
     df['profit_per_item'] = df['sell_price'] - df['min_list_price']
@@ -366,7 +370,7 @@ def apply_sell_policy(stack_size=1, leads_wanted=15, duration='medium', update=T
     write_lua(data)
 
 
-def apply_buy_policy(additional_percent=1.0, test=False):
+def apply_buy_policy(MAT_DEV=0, test=False):
     """
     Determines herbs to buy based on potions in inventory. 
     Always buys at or below current market price.
@@ -418,7 +422,10 @@ def apply_buy_policy(additional_percent=1.0, test=False):
     herbs = herbs.sort_index()
 
     # Get market values
-    item_prices = pd.read_parquet('intermediate/item_prices.parquet')
+    #item_prices = pd.read_parquet('intermediate/item_prices.parquet')
+
+    item_prices = pd.read_parquet('intermediate/booty_data.parquet')
+    item_prices['market_price'] = item_prices['recent'] - (item_prices['stddev'] * MAT_DEV) 
 
     # Clean up auction data
     auction_data = pd.read_parquet('intermediate/auction_scandata.parquet')
@@ -429,11 +436,11 @@ def apply_buy_policy(additional_percent=1.0, test=False):
 
     for herb, count in herbs['herbs_purchasing'].iteritems():
         # Always buy at way below market
-        buy_price = item_prices.loc[herb, 'market_price'] * 0.5    
+        buy_price = item_prices.loc[herb, 'market_price'] * 0.3    
 
         # Filter to herbs below market price
         listings = auction_data[auction_data['item']==herb]
-        listings = listings[listings['price_per']<(item_prices.loc[herb, 'market_price'] * additional_percent)]
+        listings = listings[listings['price_per']<(item_prices.loc[herb, 'market_price'])]
         listings['cumsum'] = listings['count'].cumsum()
 
         # Filter to lowest priced herbs for the quantity needed

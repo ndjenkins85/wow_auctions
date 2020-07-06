@@ -8,6 +8,27 @@ from slpp import slpp as lua #pip install git+https://github.com/SirAnthony/slpp
 from datetime import datetime as dt
 import os
 
+
+def generate_new_pricer_file():
+    """ Generates a blank pricer file of items of interest. This is used to fill in the latest pricing
+    information from booty bay gazette. This is done in game using a self build addon with the /pricer command    
+    """
+    items = load_items()
+
+    pricer_file = ["local addonName, addonTable = ...", "", "addonTable.items = {"]
+
+    for key, value in items.items():
+        if value.get('group') in ['Buy', 'Sell']:
+            pricer_file.append(f"['{key}'] = " + "{},")
+
+    # Replace last ',' with '}'
+    pricer_file[-1] = pricer_file[-1][:-1] + '}'
+    
+    pricer_path = "/Applications/World of Warcraft/_classic_/Interface/AddOns/Pricer/items_of_interest.lua"
+    
+    with open(pricer_path, 'w') as f:
+        f.write('\n'.join(pricer_file))
+
     
 def source_merge(a, b, path=None):
     "merges b into a"

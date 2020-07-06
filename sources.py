@@ -182,3 +182,17 @@ def generate_auction_activity(verbose=False, test=False):
     if verbose: 
         print(f"Auction actions full repository. {df.shape[0]} records")
     df.to_parquet('full/auction_activity.parquet', compression='gzip')
+
+
+def generate_booty_data(verbose=False):
+    """ Get and save booty bay data
+    """
+    account = '396255466#1'
+    pricerdata = read_lua("Pricer", merge_account_sources=False, accounts=[account])[account]["PricerData"]
+    pricerdata = pd.DataFrame(pricerdata).T
+
+    # Saves latest scan to intermediate (immediate)
+    pricerdata.to_parquet('intermediate/booty_data.parquet', compression='gzip')
+    pricerdata.to_parquet(f"full/booty_data/{str(pricerdata['timestamp'].max())}.parquet", compression='gzip')
+    if verbose: 
+        print(f"Generating booty data {pricerdata.shape[0]}")

@@ -59,6 +59,24 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "utils.py",
+			"settings":
+			{
+				"buffer_size": 5053,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "analysis.py",
+			"settings":
+			{
+				"buffer_size": 19849,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -110,11 +128,12 @@
 	[
 		"/Users/nicholasjenkins/Documents/wow_auctions",
 		"/Users/nicholasjenkins/Documents/wow_auctions/config",
-		"/Users/nicholasjenkins/Documents/wow_auctions/data",
 		"/Users/nicholasjenkins/Documents/wow_auctions/intermediate"
 	],
 	"file_history":
 	[
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-2632-open.html",
+		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-694-open.html",
 		"/Users/nicholasjenkins/Documents/wow_auctions/utils.py",
 		"/Users/nicholasjenkins/Documents/wow_auctions/config/items.yaml",
 		"/Users/nicholasjenkins/Documents/wow_auctions/README.md",
@@ -213,7 +232,7 @@
 	],
 	"find":
 	{
-		"height": 42.0
+		"height": 30.0
 	},
 	"find_in_files":
 	{
@@ -228,6 +247,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"plot",
+			"apply_sell_policy",
 			"material_cost = 0",
 			"item_prices",
 			"details",
@@ -294,8 +315,69 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "utils.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5053,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2402,
+								2452
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "analysis.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19849,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19663,
+								19663
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9152.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -376,7 +458,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 97.0,
+	"side_bar_width": 313.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

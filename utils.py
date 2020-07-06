@@ -73,6 +73,8 @@ def get_and_format_auction_data():
 
     listings = []
     for rope in ropes:
+        if len(rope)<10:
+            continue        
         listings_part = rope.split('},{')
         listings_part[0] = listings_part[0].split('{{')[1]
         listings_part[-1] = listings_part[-1].split('},}')[0]

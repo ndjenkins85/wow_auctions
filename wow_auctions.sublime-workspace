@@ -63,7 +63,7 @@
 			"file": "utils.py",
 			"settings":
 			{
-				"buffer_size": 5053,
+				"buffer_size": 5150,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -72,7 +72,16 @@
 			"file": "analysis.py",
 			"settings":
 			{
-				"buffer_size": 19849,
+				"buffer_size": 19850,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sources.py",
+			"settings":
+			{
+				"buffer_size": 7660,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -132,6 +141,7 @@
 	],
 	"file_history":
 	[
+		"/Applications/World of Warcraft/_classic_/WTF/Account/396255466#1/SavedVariables/Auc-Advanced.lua",
 		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-2632-open.html",
 		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-694-open.html",
 		"/Users/nicholasjenkins/Documents/wow_auctions/utils.py",
@@ -247,6 +257,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"lua",
 			"plot",
 			"apply_sell_policy",
 			"material_cost = 0",
@@ -315,7 +326,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -324,15 +335,45 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5053,
+						"buffer_size": 5150,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2402,
-								2452
+								1962,
+								2061
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 143.0,
+						"translation.y": 686.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "analysis.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19850,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3,
+								3
 							]
 						],
 						"settings":
@@ -349,20 +390,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "analysis.py",
+					"buffer": 2,
+					"file": "sources.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 19849,
+						"buffer_size": 7660,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19663,
-								19663
+								4041,
+								4068
 							]
 						],
 						"settings":
@@ -372,10 +413,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9152.0,
+						"translation.y": 2774.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

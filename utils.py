@@ -84,6 +84,7 @@ def get_and_format_auction_data():
     # Contains lots of columns, we ignore ones we likely dont care about
     # We apply transformations and relabel    
     df = pd.DataFrame([x.split('|')[-1].split(',') for x in listings])
+    df['time_remaining'] = df[6].replace({1: 30, 2: 60*2, 3: 60*12, 4: 60*24})
     df['item'] = df[8].str.replace('"','').str[1:-1]
     df['count'] = df[10].replace('nil', 0).astype(int)
     df['price'] = df[16].astype(int)
@@ -96,7 +97,7 @@ def get_and_format_auction_data():
     df = df[df['count']>0]
     df['price_per'] = df['price'] / df['count']
 
-    cols = ["timestamp", "item", "count", "price", "agent", "price_per"]
+    cols = ["timestamp", "item", "count", "price", "agent", "price_per", "time_remaining"]
     df = df[cols]
 
     return df

@@ -33,17 +33,15 @@ def analyse():
 	analysis.analyse_sell_data()
 	analysis.apply_buy_policy(MAT_DEV=0)
 
-#apply_sell_policy(stack_size=5, leads_wanted=50, duration='long', update=True, factor=2)
-#generate_new_pricer_file
-
 if __name__ == "__main__":
 	start = dt.now()
 	print(start)
 
+	#generate_new_pricer_file()
 	analyse()
 	analysis.apply_sell_policy(stack_size=5, leads_wanted=20, duration='medium', update=True)
 	#analysis.apply_sell_policy(stack_size=1, leads_wanted=25, duration='medium', update=True, leave_one=False)
-
+	#apply_sell_policy(stack_size=5, leads_wanted=50, duration='long', update=True, factor=2)
 
 	end = dt.now()
 	print(end)

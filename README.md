@@ -2,6 +2,15 @@
 
 This project helps automate some aspects of trading on the World of Warcraft (WoW) auction house.
 
+### Environment setup
+
+```bash
+virtualenv venv
+. venv/bin/activate
+pip install -r requirements.txt
+```
+
+
 ### Background
 Gold in WoW is similar to real life money. Players earn gold from killing monsters, and this gold is used to buy items from other players. To facilitate this exchange, there is a centralised Auction House (AH). From there players can list their items for bid/buy, and use the AH to purchase items they need. In many ways, the AH is comparable with a 'stock market' with item value regularly changing. 
 

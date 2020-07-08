@@ -5,8 +5,6 @@ import warnings
 warnings.simplefilter(action='ignore')
 
 import argparse
-import logging
-
 # Logging
 
 # Setuptools
@@ -43,7 +41,9 @@ if __name__ == "__main__":
     parser.add_argument('-a', action='store_true')
     parser.add_argument('-s1', action='store_true')
     parser.add_argument('-s2', action='store_true')
-    parser.add_argument('-s3', action='store_true')     
+    parser.add_argument('-m1', action='store_true')   
+    parser.add_argument('-m2', action='store_true')   
+    parser.add_argument('-l1', action='store_true')       
     args = parser.parse_args()  
 
     start = dt.now()
@@ -51,9 +51,16 @@ if __name__ == "__main__":
 
     if args.np: utils.generate_new_pricer_file()
     if args.a: analyse()
-    if args.s1: analysis.apply_sell_policy(stack_size=5, leads_wanted=20, duration='medium', update=True)
-    if args.s2: analysis.apply_sell_policy(stack_size=1, leads_wanted=25, duration='medium', update=True, leave_one=False)
-    if args.s3: apply_sell_policy(stack_size=5, leads_wanted=50, duration='long', update=True, factor=2)
+
+    if args.s1: analysis.apply_sell_policy(stack_size=5, leads_wanted=5, duration='short', update=True)
+    if args.s2: analysis.apply_sell_policy(stack_size=1, leads_wanted=10, duration='short', update=True, leave_one=False)
+
+    if args.m1: analysis.apply_sell_policy(stack_size=5, leads_wanted=20, duration='medium', update=True)
+    if args.m2: analysis.apply_sell_policy(stack_size=1, leads_wanted=25, duration='medium', update=True, leave_one=False)
+
+    if args.l1: analysis.apply_sell_policy(stack_size=5, leads_wanted=50, duration='long', update=True, factor=2)
+
+
 
     end = dt.now()
     print(end)

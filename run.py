@@ -1,12 +1,11 @@
 """ Runs the main program with command line options
 """
 
+import argparse
 import warnings
 warnings.simplefilter(action='ignore')
 
-import argparse
 # Logging
-
 # Setuptools
 # venv->Poetry
 # argparse -> Click

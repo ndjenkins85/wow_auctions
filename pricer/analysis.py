@@ -3,30 +3,18 @@ This script contains analysis of the cleaned panda parquet sources
 It creates outputs for dashboard and lua policy updates
 """
 
+from pricer import config, utils
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from pricer import utils
-
 sns.set(rc={'figure.figsize':(11.7,8.27)})
 
 import logging
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-
-formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
-
-file_handler = logging.FileHandler(f'logs/{__name__}.log')
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
-
-stream_handler = logging.StreamHandler()
-stream_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
+config.set_logging(logger, __name__)
 
 
 def analyse_item_prices(full_pricing=False, test=False):

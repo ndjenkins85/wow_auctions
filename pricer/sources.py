@@ -1,32 +1,17 @@
 """
 This script reads raw sources and converts into more standard panda parquets
 """
+from pricer import config, utils
 
 import pandas as pd
 from collections import defaultdict
 from datetime import datetime as dt
-
-from pricer import utils
-
-pd.options.mode.chained_assignment = None  # default='warn'
-
 import logging
 
+pd.options.mode.chained_assignment = None  # default='warn'
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-
-formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
-
-file_handler = logging.FileHandler(f'logs/{__name__}.log')
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
-
-stream_handler = logging.StreamHandler()
-stream_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
-
+config.set_logging(logger, __name__)
 
 def generate_inventory(test=False):
     """ Reads and reformats the Arkinventory data file into a pandas dataframe
@@ -208,4 +193,3 @@ def generate_booty_data():
     pricerdata.to_parquet(f"data/full/booty_data/{str(pricerdata['timestamp'].max())}.parquet", compression='gzip')
     
     logger.debug(f"Generating booty data {pricerdata.shape[0]}")
-    

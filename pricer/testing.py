@@ -37,14 +37,13 @@
 # #2.31 s ± 15 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
-
 # Uncomment below for
 # full scandata reset
 
 # # # ensure cols are same as those used in clean
-#cols = ["timestamp", "item", "count", "price", "agent", "price_per"]
-#auction_scandata_reset = pd.DataFrame(columns=cols)
-#auction_scandata_reset.to_parquet('full/auction_scandata.parquet', compression='gzip')
+# cols = ["timestamp", "item", "count", "price", "agent", "price_per"]
+# auction_scandata_reset = pd.DataFrame(columns=cols)
+# auction_scandata_reset.to_parquet('full/auction_scandata.parquet', compression='gzip')
 
 # Uncomment above for
 # full scandata reset
@@ -62,6 +61,4 @@
 # auction_scandata_reset.to_parquet('full/inventory.parquet', compression='gzip')
 
 # Uncomment above for
-# full scandata reset  
-
-
+# full scandata reset

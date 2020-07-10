@@ -11,8 +11,25 @@ from pricer import utils
 
 sns.set(rc={'figure.figsize':(11.7,8.27)})
 
+import logging
 
-def analyse_item_prices(verbose=False, full_pricing=False, test=False):
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+
+file_handler = logging.FileHandler(f'logs/{__name__}.log')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
+
+def analyse_item_prices(full_pricing=False, test=False):
     """
     Generate item prices based on all past auction activity and scans
     """
@@ -50,8 +67,7 @@ def analyse_item_prices(verbose=False, full_pricing=False, test=False):
 
     item_prices.to_parquet('data/intermediate/item_prices.parquet', compression='gzip')
     
-    if verbose:
-        print(f"Item prices calculated. {len(item_prices)} records")
+    logger.debug(f"Item prices calculated. {len(item_prices)} records")
 
 
 def analyse_sales_performance(test=False):
@@ -472,8 +488,8 @@ def apply_buy_policy(MAT_DEV=0, test=False):
 
     data['AucAdvancedData']['UtilSearchUiData']['Current']['snatch.itemsList'] = snatch    
 
-    print(herbs.columns)
-    print(herbs.head())
+    logger.debug(herbs.columns)
+    logger.debug(herbs.head())
     herbs = herbs[['herbs_purchasing', 'buy_price']]
 
     if test: return None # avoid saves

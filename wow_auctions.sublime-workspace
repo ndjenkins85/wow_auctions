@@ -60,30 +60,59 @@
 	"buffers":
 	[
 		{
-			"file": "utils.py",
+			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 5150,
+				"buffer_size": 437,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "analysis.py",
+			"file": "run.py",
 			"settings":
 			{
-				"buffer_size": 19850,
+				"buffer_size": 2215,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "\"\"\" Runs the main program with command line option"
+			}
+		},
+		{
+			"file": "config.py",
+			"settings":
+			{
+				"buffer_size": 431,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "sources.py",
+			"file": "pricer/sources.py",
 			"settings":
 			{
-				"buffer_size": 7660,
+				"buffer_size": 8364,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "pricer/analysis.py",
+			"settings":
+			{
+				"buffer_size": 20477,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "testing.txt",
+			"settings":
+			{
+				"buffer_size": 1686,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "Hypothesis 1: Some people will check the next tab"
 			}
 		}
 	],
@@ -137,15 +166,37 @@
 	[
 		"/Users/nicholasjenkins/Documents/wow_auctions",
 		"/Users/nicholasjenkins/Documents/wow_auctions/config",
-		"/Users/nicholasjenkins/Documents/wow_auctions/intermediate"
+		"/Users/nicholasjenkins/Documents/wow_auctions/data",
+		"/Users/nicholasjenkins/Documents/wow_auctions/data/outputs",
+		"/Users/nicholasjenkins/Documents/wow_auctions/logs",
+		"/Users/nicholasjenkins/Documents/wow_auctions/pricer"
 	],
 	"file_history":
 	[
+		"/Users/nicholasjenkins/Documents/wow_auctions/run.log",
+		"/Users/nicholasjenkins/Documents/wow_auctions/logs/__main__.log",
+		"/Applications/World of Warcraft/_classic_/Interface/AddOns/MapFader/MapFader.lua",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2020-07-08_wow-auctions-development-status_study-games-analysis.md",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2019-07-10_personal_guide-to-a-weeks-holiday-in-australia_travel-australia.md ",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2019-12-22_professional_getting-started-with-new-work-environments_consulting-career-travel.md",
+		"/Users/nicholasjenkins/Documents/wow_auctions/data/outputs/potions.png",
+		"/Users/nicholasjenkins/Documents/wow_auctions/requirements.txt",
+		"/Users/nicholasjenkins/Documents/wow_auctions/data/.gitkeep",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2020-07-07_personal_programming-and-analytics-in-games_study-games-analysis.md",
+		"/Users/nicholasjenkins/Documents/personalsite/local/2020-07-07_professional_increasing-software-development-expertise_study-career.md",
+		"/Users/nicholasjenkins/Documents/wow_auctions/.gitignore",
+		"/Users/nicholasjenkins/Documents/wow_auctions/pricer/analysis.py",
+		"/Users/nicholasjenkins/Documents/wow_auctions/pricer/sources.py",
+		"/Users/nicholasjenkins/Documents/wow_auctions/pricer/utils.py",
+		"/Users/nicholasjenkins/Documents/wow_auctions/utils.py",
+		"/Users/nicholasjenkins/Documents/wow_auctions/analysis.py",
+		"/Users/nicholasjenkins/Documents/wow_auctions/sources.py",
+		"/Users/nicholasjenkins/Documents/wow_auctions/pricer/__init__.py",
+		"/Users/nicholasjenkins/Documents/wow_auctions/outputs/sell_policy.parquet",
+		"/Users/nicholasjenkins/Documents/wow_auctions/config/items.yaml",
 		"/Applications/World of Warcraft/_classic_/WTF/Account/396255466#1/SavedVariables/Auc-Advanced.lua",
 		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-2632-open.html",
 		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-694-open.html",
-		"/Users/nicholasjenkins/Documents/wow_auctions/utils.py",
-		"/Users/nicholasjenkins/Documents/wow_auctions/config/items.yaml",
 		"/Users/nicholasjenkins/Documents/wow_auctions/README.md",
 		"/Users/nicholasjenkins/Documents/wow_auctions/config/general_settings.yaml",
 		"/Users/nicholasjenkins/Documents/wow_auctions/intermediate/items_enriched.yaml",
@@ -158,7 +209,6 @@
 		"/Users/nicholasjenkins/Documents/wow_auctions/data/ArkInventory.lua",
 		"/Applications/World of Warcraft/_classic_/WTF/Account/BLUEM/SavedVariables/Auc-Advanced.lua",
 		"/Users/nicholasjenkins/Documents/wow_auctions/config/recipes.dot",
-		"/Users/nicholasjenkins/Documents/wow_auctions/.gitignore",
 		"/Users/nicholasjenkins/Documents/wow_auctions/cp.sh",
 		"/Users/nicholasjenkins/Documents/wow_auctions/inventory.yaml",
 		"/Users/nicholasjenkins/Documents/wow_auctions/self_demand.yaml",
@@ -206,7 +256,6 @@
 		"/Users/nicholasjenkins/Documents/personalsite/env/requirements_noconda.txt",
 		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-12532-open.html",
 		"/Users/nicholasjenkins/Documents/personalsite/personalsite/templates/index.html",
-		"/Users/nicholasjenkins/Documents/personalsite/local/2019-12-22_professional_getting-started-with-new-work-environments_consulting-career-travel.md",
 		"/Users/nicholasjenkins/Documents/personalsite/local/2019-12-22_personal_a-short-weight-loss-journey_lifestyle-personalprojects.md",
 		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-2545-open.html",
 		"/Users/nicholasjenkins/Downloads/clubdata.sql",
@@ -220,7 +269,6 @@
 		"/Users/nicholasjenkins/Documents/personalsite/local/2019-07-17_personal_australian-wedding-on-a-budget_lifestyle-australia-organising.md ",
 		"/Users/nicholasjenkins/Google Drive/Documents/09_Legal/login gov us backup codes.txt",
 		"/Users/nicholasjenkins/Documents/personalsite/local/2018-11-08_personal_my-digital-nomad-packing_list_travel-gear-lifestyle-digitalnomad-packing.md",
-		"/Users/nicholasjenkins/Documents/personalsite/local/2019-07-10_personal_guide-to-a-weeks-holiday-in-australia_travel-australia.md ",
 		"/Users/nicholasjenkins/Documents/personalsite/local/2019-07-04_personal_guide-to-a-long-weekend-in-hobart_travel-australia.md",
 		"/Users/nicholasjenkins/Library/Jupyter/runtime/nbserver-592-open.html",
 		"/Users/nicholasjenkins/Documents/nsw_edu/data/facebook-ardlethncs.json",
@@ -242,13 +290,18 @@
 	],
 	"find":
 	{
-		"height": 30.0
+		"height": 42.0
 	},
 	"find_in_files":
 	{
 		"height": 175.0,
 		"where_history":
 		[
+			"/Users/nicholasjenkins/Documents/wow_auctions",
+			"<open files>",
+			"/Users/nicholasjenkins/Documents/wow_auctions",
+			"<current file>",
+			"/Users/nicholasjenkins/Documents/wow_auctions",
 			"<current file>"
 		]
 	},
@@ -257,6 +310,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"factor",
+			"_parquet",
+			"read_multiple_parquet",
+			"dump_lua",
+			"write_lua",
+			"get_item_codes",
+			"get_and_format_auction_data",
+			"get_general_settings",
+			"load_items",
+			"read_lua",
+			"source_merge",
+			"generate_new_pricer_file",
+			"settings",
+			"general_settings",
+			"MAT_DEV",
+			"group: Snatch",
+			"snatch_group",
+			"gromsb",
 			"lua",
 			"plot",
 			"apply_sell_policy",
@@ -312,6 +383,16 @@
 		"regex": false,
 		"replace_history":
 		[
+			"utils.read_multiple_parquet",
+			"utils.dump_lua",
+			"utils.write_lua",
+			"utils.get_item_codes",
+			"utils.get_and_format_auction_data",
+			"utils.get_general_settings",
+			"utils.load_items",
+			"utils.read_lua",
+			"group: Buy",
+			"group",
 			"",
 			"\\n",
 			" ",
@@ -326,24 +407,110 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "utils.py",
+					"file": "README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5150,
+						"buffer_size": 437,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1962,
-								2061
+								380,
+								380
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "run.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2215,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"auto_name": "\"\"\" Runs the main program with command line option",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "config.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 431,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								245,
+								245
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "pricer/sources.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8364,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4998,
+								4998
 							]
 						],
 						"settings":
@@ -352,28 +519,28 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 143.0,
-						"translation.y": 686.0,
+						"translation.x": 0.0,
+						"translation.y": 2130.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "analysis.py",
+					"buffer": 4,
+					"file": "pricer/analysis.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 19850,
+						"buffer_size": 20477,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3,
-								3
+								12946,
+								12952
 							]
 						],
 						"settings":
@@ -386,37 +553,36 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "sources.py",
+					"buffer": 5,
+					"file": "testing.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7660,
+						"buffer_size": 1686,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4041,
-								4068
+								1682,
+								1682
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"auto_name": "Hypothesis 1: Some people will check the next tab",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2774.0,
+						"translation.y": 327.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -499,7 +665,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 313.0,
+	"side_bar_width": 246.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

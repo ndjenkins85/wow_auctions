@@ -5,6 +5,23 @@ import argparse
 import warnings
 warnings.simplefilter(action='ignore')
 
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+
+file_handler = logging.FileHandler(f'logs/{__name__}.log')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
 # Logging
 # Setuptools
 # venv->Poetry
@@ -19,14 +36,13 @@ def analyse():
     """ Load sources, calculate prices, create policies
     """
     # TODO update this
-    verbose = True
     test = False
 
-    sources.generate_booty_data(verbose=verbose)
-    sources.generate_auction_scandata(verbose=verbose, test=test)
-    sources.generate_auction_activity(verbose=verbose, test=test)
-    sources.generate_inventory(verbose=verbose, test=test)
-    analysis.analyse_item_prices(verbose=verbose)
+    sources.generate_booty_data()
+    sources.generate_auction_scandata(test=test)
+    sources.generate_auction_activity(test=test)
+    sources.generate_inventory(test=test)
+    analysis.analyse_item_prices()
     analysis.analyse_sales_performance()
     analysis.analyse_item_min_sell_price(MAT_DEV=0)
     analysis.analyse_sell_data()
@@ -34,6 +50,9 @@ def analyse():
 
 
 if __name__ == "__main__":
+
+    start_time = dt.now()
+    logger.info('Program start')
 
     parser = argparse.ArgumentParser(description='WoW Auctions')
     parser.add_argument('-np', action='store_true')
@@ -44,9 +63,6 @@ if __name__ == "__main__":
     parser.add_argument('-m2', action='store_true')   
     parser.add_argument('-l1', action='store_true')       
     args = parser.parse_args()  
-
-    start = dt.now()
-    print(start)
 
     if args.np: utils.generate_new_pricer_file()
     if args.a: analyse()
@@ -59,8 +75,4 @@ if __name__ == "__main__":
 
     if args.l1: analysis.apply_sell_policy(stack_size=5, leads_wanted=50, duration='long', update=True, factor=2)
 
-
-
-    end = dt.now()
-    print(end)
-    print("Time taken", (end - start).total_seconds())
+    logger.info(f"Program end, total time taken {(dt.now() - start_time).total_seconds()}")

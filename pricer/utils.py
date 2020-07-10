@@ -8,6 +8,23 @@ from slpp import slpp as lua #pip install git+https://github.com/SirAnthony/slpp
 from datetime import datetime as dt
 import os
 
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+
+file_handler = logging.FileHandler(f'logs/{__name__}.log')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
 
 def generate_new_pricer_file():
     """ Generates a blank pricer file of items of interest. This is used to fill in the latest pricing
@@ -170,7 +187,7 @@ def dump_lua(data):
         t += ", ".join([f'["{k}"]={dump_lua(v)}' for k,v in data.items()])
         t += "}"
         return t
-    print(f"Unknown type {type(data)}")
+    logger.warning(f"Unknown type {type(data)}")
      
 
 def read_multiple_parquet(loc):

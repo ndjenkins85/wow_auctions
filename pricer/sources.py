@@ -10,8 +10,25 @@ from pricer import utils
 
 pd.options.mode.chained_assignment = None  # default='warn'
 
+import logging
 
-def generate_inventory(verbose=False, test=False):
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+
+file_handler = logging.FileHandler(f'logs/{__name__}.log')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
+
+def generate_inventory(test=False):
     """ Reads and reformats the Arkinventory data file into a pandas dataframe
     Loads yaml files to specify item locations and specific items of interest
     Saves down parquet file ready to go
@@ -75,8 +92,7 @@ def generate_inventory(verbose=False, test=False):
     df.to_parquet('data/intermediate/inventory.parquet', compression='gzip')
     df_monies.to_parquet('data/intermediate/monies.parquet', compression='gzip')
 
-    if verbose:
-        print(f"Inventory formatted. {len(df)} records, {int(df_monies['monies'].sum()/10000)} total money across chars")
+    logger.debug(f"Inventory formatted. {len(df)} records, {int(df_monies['monies'].sum()/10000)} total money across chars")
         
     inventory_repo = pd.read_parquet('data/full/inventory.parquet')
     inventory_repo.to_parquet('data/full_backup/inventory.parquet', compression='gzip')
@@ -95,11 +111,10 @@ def generate_inventory(verbose=False, test=False):
 
     unique_periods = len(inventory_repo['timestamp'].unique())
 
-    if verbose:
-        print(f"Inventory full repository. {len(inventory_repo)} records with {unique_periods} snapshots. Repository has {updated} been updated this run")
+    logger.debug(f"Inventory full repository. {len(inventory_repo)} records with {unique_periods} snapshots. Repository has {updated} been updated this run")
 
 
-def generate_auction_scandata(verbose=False, test=False):
+def generate_auction_scandata(test=False):
     """ Snapshot of all AH prices from latest scan
         Reads the raw scandata from both accounts, cleans and pulls latest only
         Saves latest scandata to intermediate and adds to a full database with backup
@@ -114,7 +129,7 @@ def generate_auction_scandata(verbose=False, test=False):
     auction_data.to_parquet('data/intermediate/auction_scandata.parquet', compression='gzip')
     auction_data.to_parquet(f"data/full/auction_scandata/{str(auction_data['timestamp'].max())}.parquet", compression='gzip')
 
-    print(f"Auction scandata loaded and cleaned. {len(auction_data)} records")
+    logger.debug(f"Auction scandata loaded and cleaned. {len(auction_data)} records")
 
     items = utils.load_items()
     auction_scan_minprice = auction_data.copy()
@@ -135,7 +150,7 @@ def generate_auction_scandata(verbose=False, test=False):
         auction_scan_minprice_repo.to_parquet('data/full/auction_scan_minprice.parquet', compression='gzip')
 
 
-def generate_auction_activity(verbose=False, test=False):
+def generate_auction_activity(test=False):
     """ Generates auction history parquet file with auctions of interest.
         Reads and parses Beancounter auction history across all characters
         Works the data into a labelled and cleaned pandas before parquet saves
@@ -177,12 +192,11 @@ def generate_auction_activity(verbose=False, test=False):
     df['timestamp'] = df['timestamp'].apply(lambda x: dt.fromtimestamp(int(x)))
 
     if test: return None # avoid saves
-    if verbose: 
-        print(f"Auction actions full repository. {df.shape[0]} records")
+    logger.debug(f"Auction actions full repository. {df.shape[0]} records")
     df.to_parquet('data/full/auction_activity.parquet', compression='gzip')
 
 
-def generate_booty_data(verbose=False):
+def generate_booty_data():
     """ Get and save booty bay data
     """
     account = '396255466#1'
@@ -192,5 +206,6 @@ def generate_booty_data(verbose=False):
     # Saves latest scan to intermediate (immediate)
     pricerdata.to_parquet('data/intermediate/booty_data.parquet', compression='gzip')
     pricerdata.to_parquet(f"data/full/booty_data/{str(pricerdata['timestamp'].max())}.parquet", compression='gzip')
-    if verbose: 
-        print(f"Generating booty data {pricerdata.shape[0]}")
+    
+    logger.debug(f"Generating booty data {pricerdata.shape[0]}")
+    

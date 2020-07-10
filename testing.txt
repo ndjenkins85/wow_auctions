@@ -51,4 +51,12 @@ Free Action Potion, 10:40, 1.47, 1.89
 Again, 1's filled in first despite being posted after
 
 
+- Set bid price as minimum acceptable sale price
+- Set buy price as 125% of normal price
+
+Need enough to maintain 120 of each item auction
+As stocks increase past 120, X should increase MP - SD*X
+
+
+
 

@@ -21,7 +21,6 @@ def analyse_item_prices(full_pricing=False, test=False):
     """
     Generate item prices based on all past auction activity and scans
     """
-
     auction_activity = pd.read_parquet("data/full/auction_activity.parquet")
     auction_activity = auction_activity[
         ["item", "timestamp", "price_per", "auction_type"]
@@ -383,15 +382,7 @@ def analyse_sell_data(test=False):
     df.to_parquet("data/outputs/sell_policy.parquet", compression="gzip")
 
 
-def apply_sell_policy(
-    stack_size=1,
-    leads_wanted=15,
-    duration="medium",
-    update=True,
-    factor=1,
-    test=False,
-    leave_one=True,
-):
+def apply_sell_policy(stack=1, leads=15, duration="m", update=True, test=False):
     """
     Given a datatable of the sell environment, create sell policy and save to WoW
     """
@@ -400,32 +391,35 @@ def apply_sell_policy(
 
     for item, row in df_sell_policy.iterrows():
 
-        leads = row.loc["auction_leads"]
+        current_leads = row.loc["auction_leads"]
         aucs = row.loc["auctions"]
         inv = row.loc["immediate_inv"]
 
-        stacks = max(int(inv / stack_size) - int(leave_one), 0)
-        available_to_sell = stacks * stack_size
+        # Could optionally leave one item remaining
+        # stacks = max(int(inv / stack) - int(leave_one), 0)
+
+        stacks = max(int(inv / stack), 0)
+        available_to_sell = stacks * stack
 
         sell_count = 0
-        while leads < leads_wanted and available_to_sell > 0:
-            leads += stack_size
-            aucs += stack_size
-            available_to_sell -= stack_size
+        while current_leads < leads and available_to_sell > 0:
+            current_leads += stack
+            aucs += stack
+            available_to_sell -= stack
             sell_count += 1
 
-        df_sell_policy.loc[item, "stack_size"] = stack_size
+        df_sell_policy.loc[item, "stack"] = stack
 
         if sell_count > 0 and df_sell_policy.loc[item, "infeasible"] == 0:
             df_sell_policy.loc[item, "sell_count"] = sell_count
-            df_sell_policy.loc[item, "auction_leads"] = leads
-            df_sell_policy.loc[item, "immediate_inv"] -= sell_count * stack_size
+            df_sell_policy.loc[item, "auction_leads"] = current_leads
+            df_sell_policy.loc[item, "immediate_inv"] -= sell_count * stack
             df_sell_policy.loc[item, "auctions"] = aucs
         else:
             df_sell_policy.loc[item, "sell_count"] = inv + 1
 
     df_sell_policy["sell_count"] = df_sell_policy["sell_count"].astype(int)
-    df_sell_policy["stack_size"] = df_sell_policy["stack_size"].astype(int)
+    df_sell_policy["stack"] = df_sell_policy["stack"].astype(int)
     df_sell_policy["auction_leads"] = df_sell_policy["auction_leads"].astype(int)
     df_sell_policy["auctions"] = df_sell_policy["auctions"].astype(int)
 
@@ -434,7 +428,7 @@ def apply_sell_policy(
             "data/outputs/sell_policy.parquet", compression="gzip"
         )
 
-    duration = {"short": 720, "medium": 1440, "long": 2880}.get(duration)
+    duration = {"s": 720, "m": 1440, "l": 2880}.get(duration)
     item_codes = utils.get_item_codes()
 
     # Seed new appraiser
@@ -450,14 +444,12 @@ def apply_sell_policy(
     for item, d in df_sell_policy.iterrows():
         code = item_codes[item]
 
-        new_appraiser[f"item.{code}.fixed.bid"] = int(
-            (d["sell_price"] + d["infeasible"]) * factor
-        )
-        new_appraiser[f"item.{code}.fixed.buy"] = int(d["sell_price"] * factor)
+        new_appraiser[f"item.{code}.fixed.bid"] = int(d["sell_price"] + d["infeasible"])
+        new_appraiser[f"item.{code}.fixed.buy"] = int(d["sell_price"])
         new_appraiser[f"item.{code}.match"] = False
         new_appraiser[f"item.{code}.model"] = "fixed"
         new_appraiser[f"item.{code}.number"] = int(d["sell_count"])
-        new_appraiser[f"item.{code}.stack"] = int(d["stack_size"])
+        new_appraiser[f"item.{code}.stack"] = int(d["stack"])
         new_appraiser[f"item.{code}.bulk"] = True
         new_appraiser[f"item.{code}.duration"] = duration
 

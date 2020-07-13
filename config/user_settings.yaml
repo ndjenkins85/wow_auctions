@@ -1,0 +1,27 @@
+# Base path to WoW directory
+warcraft_path: /Applications/World of Warcraft/_classic_/
+
+# Optionally flag characters with specific roles
+accounts:
+  BLUEM:
+    Grobbulus:
+      Amazoni: Mule
+      Bluem: Main
+      Emiliø: Main
+      Melue: Main
+      Quicksa: Mule
+      Sloany: Alt
+      Zegna: Main
+      Zegsummonx: Alt
+  396255466#1:
+    Grobbulus:
+      Amazona: Auctions
+      Bluemania: Main
+      Mistaslon: Alt
+      Zegsummona: Alt
+  801032581#1:
+    Grobbulus:
+      Skyve: Alt
+      Slonken: Main
+      Zegsummonb: Alt
+      Zegsummony: Alt

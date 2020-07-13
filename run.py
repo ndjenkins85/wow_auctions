@@ -1,26 +1,15 @@
 """ Runs the main program with command line options
 """
-
 from pricer import config, sources, analysis
 
 from datetime import datetime as dt
 import argparse
-
 import warnings
-
-warnings.simplefilter(action="ignore")
-
 import logging
 
+warnings.simplefilter(action="ignore")
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-
-
-# Black
-# Setuptools
-# venv->Poetry
-# argparse -> Click
-# docker
 
 
 def analyse(test=False):
@@ -39,19 +28,19 @@ def analyse(test=False):
 
 if __name__ == "__main__":
 
-    start_time = dt.now()
+    start_dt = dt.now()
     config.set_logging(logger)
     logger.debug("Program start")
 
     parser = argparse.ArgumentParser(description="WoW Auctions")
-    parser.add_argument("-np", action="store_true")
-    parser.add_argument("-a", action="store_true")
-    parser.add_argument("-t", action="store_true")
-    parser.add_argument("-s1", action="store_true")
-    parser.add_argument("-s2", action="store_true")
-    parser.add_argument("-m1", action="store_true")
-    parser.add_argument("-m2", action="store_true")
-    parser.add_argument("-l1", action="store_true")
+    parser.add_argument("-np", help="Create pricer file", action="store_true")
+    parser.add_argument("-a", help="Run primary analysis", action="store_true")
+    parser.add_argument("-t", help="Test mode (no saving)", action="store_true")
+    parser.add_argument("-s1", help="Short policy 5stack", action="store_true")
+    parser.add_argument("-s2", help="Short policy 1stack", action="store_true")
+    parser.add_argument("-m1", help="Mid policy 5stack", action="store_true")
+    parser.add_argument("-m2", help="Mid policy 1stack", action="store_true")
+    parser.add_argument("-l1", help="Long policy 5stack", action="store_true")
     args = parser.parse_args()
 
     if args.np:
@@ -61,34 +50,14 @@ if __name__ == "__main__":
 
     # Sell policies
     if args.s1:
-        analysis.apply_sell_policy(
-            stack_size=5, leads_wanted=5, duration="short", update=True
-        )
+        analysis.apply_sell_policy(stack=5, leads=5, duration="s")
     if args.s2:
-        analysis.apply_sell_policy(
-            stack_size=1,
-            leads_wanted=10,
-            duration="short",
-            update=True,
-            leave_one=False,
-        )
+        analysis.apply_sell_policy(stack=1, leads=10, duration="s")
     if args.m1:
-        analysis.apply_sell_policy(
-            stack_size=5, leads_wanted=20, duration="medium", update=True
-        )
+        analysis.apply_sell_policy(stack=5, leads=20, duration="m")
     if args.m2:
-        analysis.apply_sell_policy(
-            stack_size=1,
-            leads_wanted=25,
-            duration="medium",
-            update=True,
-            leave_one=False,
-        )
+        analysis.apply_sell_policy(stack=1, leads=25, duration="m")
     if args.l1:
-        analysis.apply_sell_policy(
-            stack_size=5, leads_wanted=50, duration="long", update=True, factor=2
-        )
+        analysis.apply_sell_policy(stack=5, leads=50, duration="l")
 
-    logger.info(
-        f"Program end, total time taken {(dt.now() - start_time).total_seconds()}"
-    )
+    logger.info(f"Program end, time taken {(dt.now() - start_dt).total_seconds()}")

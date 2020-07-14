@@ -1,6 +1,6 @@
 """ Runs the main program with command line options
 """
-from pricer import config, sources, analysis
+from pricer import config, sources, analysis, utils
 
 from datetime import datetime as dt
 import argparse

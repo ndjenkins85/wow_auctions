@@ -15,3 +15,8 @@ virtualenv venv
 . venv/bin/activate
 pip install -r requirements.txt
 ```
+
+#### TODO
+
+* Create additional selling profile for min-bid max-buy high-volume. May require splitting the function more carefully
+* More visibility on current inventory

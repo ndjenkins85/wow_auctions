@@ -10,11 +10,23 @@ The program is currently under development and is not currently designed for thi
 
 ### Environment setup
 
+Project uses Python 3.7, which is required to run the code. The following is used to add library dependencies.
+
 ```bash
 virtualenv venv
 . venv/bin/activate
 pip install -r requirements.txt
 ```
+
+### Running the script
+
+To run the script, run the following from command line.
+
+```bash
+python run.py -a
+```
+
+There are many command line options; -a will run primary analysis (except for sell policies). Please refer to the scripts for further information.
 
 #### TODO
 

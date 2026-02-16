@@ -1,0 +1,67 @@
+[
+  {
+    "item": "Greater Mana Potion",
+    "market_price": 8700,
+    "min_list_price": 7200,
+    "sell_price": 8640,
+    "profit_per_item": 1440,
+    "stack": 5,
+    "auction_leads": 35,
+    "undercut_count": 12,
+    "auctions": 142,
+    "inventory": 78,
+    "infeasible": 0
+  },
+  {
+    "item": "Greater Healing Potion",
+    "market_price": 6300,
+    "min_list_price": 5100,
+    "sell_price": 6257,
+    "profit_per_item": 1157,
+    "stack": 5,
+    "auction_leads": 28,
+    "undercut_count": 8,
+    "auctions": 98,
+    "inventory": 54,
+    "infeasible": 0
+  },
+  {
+    "item": "Elixir of Mongoose",
+    "market_price": 14500,
+    "min_list_price": 11800,
+    "sell_price": 14403,
+    "profit_per_item": 2603,
+    "stack": 1,
+    "auction_leads": 15,
+    "undercut_count": 23,
+    "auctions": 45,
+    "inventory": 32,
+    "infeasible": 0
+  },
+  {
+    "item": "Flask of Supreme Power",
+    "market_price": 30000,
+    "min_list_price": 24500,
+    "sell_price": 29799,
+    "profit_per_item": 5299,
+    "stack": 1,
+    "auction_leads": 8,
+    "undercut_count": 5,
+    "auctions": 12,
+    "inventory": 6,
+    "infeasible": 0
+  },
+  {
+    "item": "Greater Fire Protection",
+    "market_price": 6000,
+    "min_list_price": 4800,
+    "sell_price": 5960,
+    "profit_per_item": 1160,
+    "stack": 5,
+    "auction_leads": 45,
+    "undercut_count": 3,
+    "auctions": 67,
+    "inventory": 89,
+    "infeasible": 0
+  }
+]

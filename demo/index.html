@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WoW Auctions - Automated Trading Intelligence</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="gold">WoW</span> Auctions</h1>
+            <p class="subtitle">Automated Auction House Trading Intelligence</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="overview">Overview</button>
+            <button class="tab-btn" data-tab="prices">Price Trends</button>
+            <button class="tab-btn" data-tab="inventory">Inventory</button>
+            <button class="tab-btn" data-tab="market">Market Analysis</button>
+            <button class="tab-btn" data-tab="about">About</button>
+        </nav>
+
+        <!-- Overview Tab -->
+        <div class="tab-content active" id="overview">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-value" id="total-gold">78,500g</div>
+                    <div class="stat-label">Liquid Gold</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-value" id="inventory-value">157,000g</div>
+                    <div class="stat-label">Inventory Value</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-value" id="total-holdings">235,500g</div>
+                    <div class="stat-label">Total Holdings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-value" id="profit-margin">+18.2%</div>
+                    <div class="stat-label">Avg Profit Margin</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Holdings Over Time</h2>
+                <canvas id="holdingsChart"></canvas>
+            </div>
+
+            <div class="info-box">
+                <h3>How It Works</h3>
+                <p>This automated trading system analyzes World of Warcraft auction house data to identify profitable trading opportunities. It tracks:</p>
+                <ul>
+                    <li><strong>Price Trends:</strong> Exponential weighted moving averages of item prices</li>
+                    <li><strong>Material Costs:</strong> Raw material expenses for crafted items (potions, elixirs)</li>
+                    <li><strong>Buy/Sell Policies:</strong> Automated recommendations based on profit margins and success rates</li>
+                    <li><strong>Inventory Management:</strong> Real-time tracking across characters and locations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Price Trends Tab -->
+        <div class="tab-content" id="prices">
+            <div class="card">
+                <h2>Item Price History</h2>
+                <div class="item-selector">
+                    <button class="item-btn active" data-item="Greater Mana Potion">Greater Mana Potion</button>
+                    <button class="item-btn" data-item="Greater Healing Potion">Greater Healing Potion</button>
+                    <button class="item-btn" data-item="Elixir of Mongoose">Elixir of Mongoose</button>
+                    <button class="item-btn" data-item="Dreamfoil">Dreamfoil</button>
+                    <button class="item-btn" data-item="Mountain Silversage">Mountain Silversage</button>
+                </div>
+                <canvas id="priceChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h2>Current Market Prices</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Market Price</th>
+                            <th>Material Cost</th>
+                            <th>Profit/Item</th>
+                            <th>Margin</th>
+                        </tr>
+                    </thead>
+                    <tbody id="market-prices-table">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Inventory Tab -->
+        <div class="tab-content" id="inventory">
+            <div class="card">
+                <h2>Current Inventory</h2>
+                <canvas id="inventoryChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h2>Inventory Breakdown</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Count</th>
+                            <th>Value</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventory-table">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Market Analysis Tab -->
+        <div class="tab-content" id="market">
+            <div class="card">
+                <h2>Sell Policy Recommendations</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>List Price</th>
+                            <th>Profit/Item</th>
+                            <th>Stack</th>
+                            <th>Leading</th>
+                            <th>Undercut By</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sell-policy-table">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Live Auction House Snapshot</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Seller</th>
+                            <th>Price/Unit</th>
+                            <th>Count</th>
+                            <th>Buyout</th>
+                        </tr>
+                    </thead>
+                    <tbody id="market-snapshot-table">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div class="tab-content" id="about">
+            <div class="card">
+                <h2>About This Project</h2>
+                <p>WoW Auctions is an automated trading system for World of Warcraft's auction house. It was built to optimize buying and selling of high-volume crafted goods (primarily consumables like potions and elixirs).</p>
+                
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Price Analysis:</strong> Tracks historical auction data and calculates exponential weighted moving averages</li>
+                    <li><strong>Cost Calculation:</strong> Determines material costs for crafted items based on current herb prices</li>
+                    <li><strong>Profit Optimization:</strong> Factors in auction house fees, deposit costs, and success rates</li>
+                    <li><strong>Buy/Sell Automation:</strong> Generates policies for WoW addons (Auctioneer, BeanCounter)</li>
+                    <li><strong>Multi-Character Tracking:</strong> Monitors inventory across multiple characters and locations</li>
+                </ul>
+
+                <h3>Technical Stack</h3>
+                <ul>
+                    <li><strong>Backend:</strong> Python 3.7+ with Pandas for data analysis</li>
+                    <li><strong>Data Storage:</strong> Parquet files for efficient time-series data</li>
+                    <li><strong>WoW Integration:</strong> Lua SavedVariables parsing from game addons</li>
+                    <li><strong>Visualization:</strong> Seaborn/Matplotlib for analytics</li>
+                </ul>
+
+                <h3>How It Works</h3>
+                <ol>
+                    <li>Extracts auction scan data from WoW addons (Auctioneer, BeanCounter)</li>
+                    <li>Parses inventory data from ArkInventory addon</li>
+                    <li>Calculates item prices using EWMA (alpha=0.2) over historical data</li>
+                    <li>Determines material costs for crafted items based on recipes</li>
+                    <li>Applies profit margins and auction success rates</li>
+                    <li>Generates buy/sell policies written back to addon SavedVariables</li>
+                </ol>
+
+                <p class="note"><strong>Note:</strong> This is a static demo with baked sample data. The actual system integrates with World of Warcraft addons and processes live auction data.</p>
+
+                <div class="links">
+                    <a href="https://github.com/ndjenkins85/wow_auctions" target="_blank" class="btn">View on GitHub</a>
+                    <a href="https://www.nickjenkins.com.au/articles/personal/2020/07/07/programming-and-analytics-in-games" target="_blank" class="btn">Read Article</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2020-2024 Nick Jenkins | <a href="https://github.com/ndjenkins85/wow_auctions">GitHub</a> | <a href="https://www.nickjenkins.com.au">Portfolio</a></p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

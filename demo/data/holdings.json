@@ -1,0 +1,17 @@
+[
+  {"date": "2020-06-01", "gold": 45000, "inventory_value": 125000, "total": 170000},
+  {"date": "2020-06-03", "gold": 48000, "inventory_value": 128000, "total": 176000},
+  {"date": "2020-06-05", "gold": 51000, "inventory_value": 131000, "total": 182000},
+  {"date": "2020-06-07", "gold": 49500, "inventory_value": 134000, "total": 183500},
+  {"date": "2020-06-09", "gold": 53000, "inventory_value": 136000, "total": 189000},
+  {"date": "2020-06-11", "gold": 56000, "inventory_value": 139000, "total": 195000},
+  {"date": "2020-06-13", "gold": 58500, "inventory_value": 141000, "total": 199500},
+  {"date": "2020-06-15", "gold": 61000, "inventory_value": 143000, "total": 204000},
+  {"date": "2020-06-17", "gold": 63500, "inventory_value": 145000, "total": 208500},
+  {"date": "2020-06-19", "gold": 66000, "inventory_value": 147000, "total": 213000},
+  {"date": "2020-06-21", "gold": 68500, "inventory_value": 149000, "total": 217500},
+  {"date": "2020-06-23", "gold": 71000, "inventory_value": 151000, "total": 222000},
+  {"date": "2020-06-25", "gold": 73500, "inventory_value": 153000, "total": 226500},
+  {"date": "2020-06-27", "gold": 76000, "inventory_value": 155000, "total": 231000},
+  {"date": "2020-06-29", "gold": 78500, "inventory_value": 157000, "total": 235500}
+]

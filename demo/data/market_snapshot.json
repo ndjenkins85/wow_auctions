@@ -1,0 +1,14 @@
+[
+  {"item": "Greater Mana Potion", "seller": "Competitor1", "price_per": 8700, "count": 5, "buyout": 43500},
+  {"item": "Greater Mana Potion", "seller": "Amazona", "price_per": 8640, "count": 5, "buyout": 43200},
+  {"item": "Greater Mana Potion", "seller": "Competitor2", "price_per": 8750, "count": 5, "buyout": 43750},
+  {"item": "Greater Healing Potion", "seller": "Amazona", "price_per": 6257, "count": 5, "buyout": 31285},
+  {"item": "Greater Healing Potion", "seller": "Competitor3", "price_per": 6300, "count": 5, "buyout": 31500},
+  {"item": "Elixir of Mongoose", "seller": "Competitor4", "price_per": 14500, "count": 1, "buyout": 14500},
+  {"item": "Elixir of Mongoose", "seller": "Amazona", "price_per": 14403, "count": 1, "buyout": 14403},
+  {"item": "Elixir of Mongoose", "seller": "Competitor5", "price_per": 14550, "count": 1, "buyout": 14550},
+  {"item": "Dreamfoil", "seller": "Farmer1", "price_per": 2100, "count": 20, "buyout": 42000},
+  {"item": "Dreamfoil", "seller": "Farmer2", "price_per": 2150, "count": 20, "buyout": 43000},
+  {"item": "Mountain Silversage", "seller": "Farmer3", "price_per": 1800, "count": 20, "buyout": 36000},
+  {"item": "Mountain Silversage", "seller": "Farmer4", "price_per": 1850, "count": 20, "buyout": 37000}
+]

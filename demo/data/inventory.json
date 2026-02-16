@@ -1,0 +1,12 @@
+[
+  {"item": "Greater Mana Potion", "count": 142, "value": 1234800, "location": "Auctions"},
+  {"item": "Greater Healing Potion", "count": 98, "value": 617400, "location": "Bank"},
+  {"item": "Elixir of Mongoose", "count": 45, "value": 652500, "location": "Inventory"},
+  {"item": "Flask of Supreme Power", "count": 12, "value": 360000, "location": "Bank"},
+  {"item": "Greater Fire Protection", "count": 67, "value": 401700, "location": "Auctions"},
+  {"item": "Greater Nature Protection", "count": 54, "value": 324000, "location": "Bank"},
+  {"item": "Dreamfoil", "count": 234, "value": 491400, "location": "Storage"},
+  {"item": "Mountain Silversage", "count": 189, "value": 340200, "location": "Storage"},
+  {"item": "Plaguebloom", "count": 156, "value": 218400, "location": "Storage"},
+  {"item": "Golden Sansam", "count": 87, "value": 174000, "location": "Storage"}
+]
